@@ -1,0 +1,64 @@
+grammar fr.perrin.trains.Reseau with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+generate reseau "http://www.perrin.fr/trains/Reseau"
+
+Model:
+	(segments+=Segment | pointsLiaison+=DeclarationPoint)*
+;
+
+DeclarationPoint:
+	name=ID '=' xy=Point ';'
+;
+
+Point: Addition;
+
+Addition returns Point: 
+	Multiplication (
+		({Plus.left=current} '+' | {Minus.left=current} '-') 
+		right=Multiplication
+	)*
+;
+
+Multiplication returns Point:
+	Puissance (
+		({Multi.left=current} '*' | {Div.left=current} '/') 
+		right=Multiplication
+	)*;
+
+Puissance returns Point: PrimaryExpression ({Degree.left=current} '°' | ({Pow.left=current} '^' right = PrimaryExpression))?;
+
+//Degre returns Point: PrimaryExpression ({Degree.left=current} '°')?;
+
+PrimaryExpression returns Point: 
+	'(' Point ({CoordonneeLiteral.left=current} ',' right=Point)? ')'
+	| {NumberLiteral} value=NUMBER
+	| {Negative} '-' value=PrimaryExpression
+	| {Declared} Decl=[DeclarationPoint]
+	| {Nord} 'nord'
+	| {Sud} 'sud'
+	| {Est} 'est'
+	| {Ouest} 'ouest'
+	| {Pi} 'pi'
+	| {Euler} 'e'
+	| {I} 'i'
+	| {X} 'x' '(' value=Point ')'
+	| {Y} 'y' '(' value=Point ')'
+	| {Longueur} 'longueur' '(' value=Point ')'
+	| {Angle} 'angle' '(' value=Point ')'
+	| {Argument} 'argument' '(' value=Point ')'
+;
+
+terminal NUMBER returns ecore::EDouble: ('0'..'9')+ ('.' ('0'..'9')+)?;
+@Override terminal INT returns ecore::EInt: 'this one has been deactivated';
+
+Segment:
+	'segment' name=ID '{'
+		(parts+=SegmentPart)+
+	'}'
+;
+
+SegmentPart: fst=Point next=(Unidir | Bidir) ';' ;
+Unidir: ('->' pts+=Point)+;
+Bidir: ('<->' pts+=Point)+;
+
