@@ -8,5 +8,22 @@ Bundle-SymbolicName: fr.perrin.trains.reseau; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0"
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-10
+Export-Package: fr.perrin.trains.validation,
+ fr.perrin.trains.reseau.util,
+ fr.perrin.trains.scoping,
+ fr.perrin.trains.reseau.impl,
+ fr.perrin.trains,
+ fr.perrin.trains.parser.antlr.internal,
+ fr.perrin.trains.parser.antlr,
+ fr.perrin.trains.reseau,
+ fr.perrin.trains.services,
+ fr.perrin.trains.serializer,
+ fr.perrin.trains.generator
+Import-Package: org.apache.log4j
