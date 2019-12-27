@@ -1,0 +1,9 @@
+grammar fr.perrin.trains.Reseau with org.eclipse.xtext.common.Terminals
+
+generate reseau "http://www.perrin.fr/trains/Reseau"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
