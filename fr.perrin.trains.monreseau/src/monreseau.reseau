@@ -1,0 +1,66 @@
+
+
+// Définitions de points
+PG01 = (500,905);
+PL01 = PG01 + (10,10);
+PL02 = PL01 - (170,0);
+PL04 = PG01 + (10,-10);
+PL03 = PL04 - (170,0);
+PL05 = (PL01 + PL04)/2 + (100,0);
+PL06 = PL05 + (200,0);
+
+// Un segment unidirectionnel
+segment S01 { 
+	PL01 -> PL02;
+} 
+
+/* Un segment unidirectionnel avec des points intermédiaires */
+segment S02 { 
+	PL02 
+	-> PL02 + (-50, 25)
+	-> PL02 + (-150,25)
+	-> (PL02 + PL03)/2 - (150,0)
+	-> PL03 + (-150,-25)
+	-> PL03 + (-50,-25) 
+	-> PL03;
+}
+
+segment S03 { 
+	PL03 -> PL04;
+} 
+
+
+// Un segment à aiguillage
+AX01 = (PL01 + PL04 + 2*PL05)/4;
+segment X01 {
+	PL05 -> AX01 -> PL01; 
+	PL04 -> AX01 -> PL05;
+}
+
+// Un segment bidirectionnel
+segment S04 { 
+	PL05 <-> PL06;
+} 
+
+// Aiguillage AX02
+AX02 = PL06 + (0,-30);
+PL07 = AX02 + (0,-30);
+PL08 = AX02 + (-20,-30);
+segment X02 {
+	PL06 -> AX02 -> PL07;
+	PL07 -> AX02 -> PL06;
+	PL06 -> AX02 -> PL08;
+	PL08 -> AX02 -> PL06; 
+}
+
+// Aiguillage AX03
+AX03 = AX02 + 60*sud;
+PL09 = AX03 + (  0, -30);
+PL10 = AX03 + (-20, -30);
+
+segment X03 {
+	PL07 -> AX03 -> PL09;
+	PL07 -> AX03 -> PL10;
+	PL09 -> AX03 -> PL07;
+	PL10 -> AX03 -> PL07; 
+}
