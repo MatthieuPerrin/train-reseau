@@ -125,7 +125,7 @@ class PointToComplex {
 	}
 
 	def dispatch protected Complex internalEvaluate(Y p) {
-		return new Complex(evaluate(p.value).y, 0);
+		return new Complex(0,evaluate(p.value).y);
 	}
 
 	def dispatch protected Complex internalEvaluate(Longueur p) {

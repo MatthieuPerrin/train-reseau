@@ -33,6 +33,10 @@ public abstract class ApplicationTrain extends JPanel implements ActionListener 
 
 	
 	public Node addNode(Complex c, String name) {
+		if(c.x < xmin) xmin = c.x;
+		if(c.x > xmax) xmax = c.x;
+		if(c.y < ymin) ymin = c.y;
+		if(c.y > ymax) ymax = c.y;
 		for(Node n : nodes) {
 			if(n.position.equals(c)) {
 				return n;
