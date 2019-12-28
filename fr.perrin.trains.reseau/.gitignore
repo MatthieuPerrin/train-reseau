@@ -1,1 +1,7 @@
 /.classpath
+/META-INF/
+/build.properties
+/model/
+/plugin.xml
+/src-gen/
+/xtend-gen/
