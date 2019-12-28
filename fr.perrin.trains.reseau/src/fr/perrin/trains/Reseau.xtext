@@ -51,7 +51,9 @@ PrimaryExpression returns Point:
 ;
 
 Ligne :  Ligne1 | Ligne2;
+
 Ligne1 :  '[' p1=Point ',' p2=Point ']';
+
 Ligne2 :  '<' p1=Point ',' p2=Point '>';
 
 terminal NUMBER returns ecore::EDouble: ('0'..'9')+ ('.' ('0'..'9')+)?;
