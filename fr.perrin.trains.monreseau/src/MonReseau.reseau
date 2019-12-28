@@ -1,5 +1,8 @@
 
 
+
+
+/*
 // Définitions de points
 PG01 = (500,905);
 PL01 = PG01 + (10,10);
@@ -14,7 +17,7 @@ segment S01 {
 	PL01 -> PL02;
 } 
 
-/* Un segment unidirectionnel avec des points intermédiaires */
+// Un segment unidirectionnel avec des points intermédiaires 
 segment S02 { 
 	PL02 
 	-> PL02 + (-50, 25)
@@ -64,3 +67,242 @@ segment X03 {
 	PL09 -> AX03 -> PL07;
 	PL10 -> AX03 -> PL07; 
 }
+*/
+
+/*
+segment repere {
+	(-250, 100) -> (-250, -100) -> (250, -100);
+}
+
+Zero = (0,0);
+
+// nord = (0,1) = 90°
+
+Nord = 100 * nord; // 100 * 90°
+Sud = 100 * sud; // -100 * nord
+Est = 100 * est; // 100
+Ouest = 100 * ouest; // -100
+
+// Aller 100 km vers le nord et 50 vers l'est
+// Identique à (50, 100)
+NordNordEst = 50 * est + 100 * nord;
+
+// Un angle de 45° par rapport à l'est
+NordEst = 100 * 45°;
+
+// Un angle de 45° par rapport au nord
+NordOuest = 100 * 45° * nord;
+
+P1 = 50 * nord * nord ; // ou 50 * nord ^ 2
+//P2 = - 50 * est;
+
+// donc  50 * nord * nord == - 50 * est
+*/
+
+/* ----------------------------------------------------------  */
+// Définitions des abcisses et ordonnées
+
+// P000 = (0, 0);     
+// P999 = (999, 999);
+
+
+y0b = 50*nord; //(0,050);
+y1 =  (0,100);
+y1b = (0,150);
+y2 =  (0,200);
+y2b = (0,250);
+y3 =  (0,300);
+y3b = (0,350);
+y4 =  (0,400);
+y4b = (0,450);
+y5 =  (0,500);
+y5b = (0,550);
+y6 =  (0,600);
+y6b = (0,650);
+y7 =  (0,700);
+y7b = (0,750);
+y8 =  (0,800);
+y8b = (0,850);
+y9 =  (0,900);
+y9b = (0,950);
+y10 =  (0,1000);
+y10b = (0,1050);
+y11 =  (0,1100);
+y11b = (0,1150);
+y12 =  (0,1200);
+y12b = (0,1250);
+y13 =  (0,1300);
+y13b = (0,1350);
+y14 =  (0,1400);
+y14b = (0,1450);
+y15 =  (0,1500);
+y15b = (0,1550);
+
+
+
+x0b = 50 * est; //(050,0);
+x1 =  (100,0);
+x1b = (150,0);
+x2 =  (200,0);
+x2b = (250,0);
+x3 =  (300,0);
+x3b = (350,0);
+x4 =  (400,0);
+x4b = (450,0);
+x5 =  (500,0);
+x5b = (550,0);
+x6 =  (600,0);
+x6b = (650,0);
+x7 =  (700,0);
+x7b = (750,0);
+x8 =  (800,0);
+x8b = (850,0);
+x9 =  (900,0);
+x9b = (950,0);
+
+/*
+y0b = 50*nord; //(0,050);
+y1 =  (100,0);
+y1b = (150,0);
+y2 =  (200,0);
+y2b = (250,0);
+y3 =  (300,0);
+y3b = (350,0);
+y4 =  (400,0);
+y4b = (450,0);
+y5 =  (500,0);
+y5b = (550,0);
+y6 =  (600,0);
+y6b = (650,0);
+y7 =  (700,0);
+y7b = (750,0);
+y8 =  (800,0);
+y8b = (850,0);
+y9 =  (900,0);
+y9b = (950,0);
+
+x0b = 50 * est; //(050,0);
+x1 =  (0,100);
+x1b = (0,150);
+x2 =  (0,200);
+x2b = (0,250);
+x3 =  (0,300);
+x3b = (0,350);
+x4 =  (0,400);
+x4b = (0,450);
+x5 =  (0,500);
+x5b = (0,550);
+x6 =  (0,600);
+x6b = (0,650);
+x7 =  (0,700);
+x7b = (0,750);
+x8 =  (0,800);
+x8b = (0,850);
+x9 =  (0,900);
+*/
+
+/* segment Diagonale { 
+	P000 -> P999;
+} */
+
+// Boucle de retournement
+
+//Segment S01
+P01 = x9  + y14;
+P02 = x6b + y14;   //   (x(Px6b), y(P01));// * nord;
+segment S01 { P01 <-> x8b+y15 <-> x7+y15 <-> P02; }
+
+//Aiguillage A01
+P03 = x5b + y14b;
+P07 = x5b + y13b;
+segment A01 {
+	P02 -> x6+y14 -> P03;
+	P07 -> x6+y14 -> P02;
+}
+ 
+//Segment Nord S02
+P04 = x3 + y15 ;
+segment S02 { P03 -> x4 + y(P03) -> P04; }
+
+//Segment Nord S03
+P05 = (x1b+x2)/2 + y14 ;
+segment S04 { P04 -> x2 + y(P04) -> P05; }
+ 
+//Segment Sud S04
+P06 = x3 + y13 ;
+segment S03 { P05 -> x2 + y(P06) -> P06; }
+ 
+//Segment Sud S05
+segment S05 { P06 -> x4 + y(P07) -> P07; }
+ 
+// Aiguillage A02   (entrée = P01)
+P90 = x(P01) + y13;
+P11 = x8 + y(P90); // 8b;
+segment A02 {
+	P01 -> x(P01) + y(P01 + P90)/2 -> P90;
+	P90 -> x(P01) + y(P01 + P90)/2 -> P01;
+	P01 -> x(P01) + y(P01 + P90)/2 -> P11;
+}
+	 
+ //Aiguillage A13  (entrée = P90)
+P91 = x(P01)  + y12; // (y7b+y8)/2;
+P24 = x(P11) + y(P91); // (y7b+y8)/2;
+segment A13 {
+	P90 -> x(P91) + y(P90 + P91)/2 -> P91;
+	P91 -> x(P91) + y(P90 + P91)/2 -> P90;
+	P90 -> x(P91) + y(P90 + P91)/2 -> P24;
+}
+	 
+//Aiguillage A03  (entrée = P91)
+
+P93 = x(P01) + y11;
+P92 = x(P11)  + y(P93); //  + y7;
+segment A03 {
+	P93 -> x(P91) + y(P91 + P93)/2 -> P91;
+	P91 -> x(P91) + y(P91 + P93)/2 -> P92;
+}
+
+//Aiguillage A06  (entrée = P95)
+P95 = x(P01)  + y10; // y6;
+P94 = (x(P11) + x(P93))/2 + y(P95 + P93)/2;
+segment A06 {
+	P95 -> x(P95) + y(P95 + P93)/2 -> P93;
+	P95 -> x(P95) + y(P95 + P93)/2 -> P94;
+}
+
+//Segment  S41
+P97 = x(P01) + y8 ;
+segment S41 { P97 -> P95; }
+
+//Aiguillage A09  (entrée = P98)
+P98 = x(P01)  + y7; // y6;
+P97a = x(P11+ P97)/2  + y(P97 + P98*2)/3;
+segment A09 {
+	P98  -> x(P98) + y(P98 + P97)/2 -> P97;
+	P97a -> x(P98) + y(P98 + P97)/2 -> P97;
+}
+ 
+ //Segment  S45
+P100 = x(P01) + y5b ;
+segment S45 { P100 -> P98; }
+
+ 
+ //Segment  S47
+P102 = x(P01) + y4 ;
+segment S47 { P102 -> P100; }
+ 
+//Aiguillage A12  (entrée = P98)
+P103 = x(P01)  + y3; // y6;
+P120 = x(P11)  + y(P102);
+segment A12 {
+	P103 -> x(P103) + y(P103 + P102)/2 -> P102;
+	P103 -> x(P103) + y(P103 + P102)/2 -> P120;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
