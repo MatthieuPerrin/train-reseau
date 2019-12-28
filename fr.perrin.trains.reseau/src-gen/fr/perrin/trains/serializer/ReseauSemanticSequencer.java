@@ -11,10 +11,14 @@ import fr.perrin.trains.reseau.CoordonneeLiteral;
 import fr.perrin.trains.reseau.DeclarationPoint;
 import fr.perrin.trains.reseau.Declared;
 import fr.perrin.trains.reseau.Degree;
+import fr.perrin.trains.reseau.Dernier;
 import fr.perrin.trains.reseau.Div;
 import fr.perrin.trains.reseau.Est;
 import fr.perrin.trains.reseau.Euler;
 import fr.perrin.trains.reseau.I;
+import fr.perrin.trains.reseau.Intersection;
+import fr.perrin.trains.reseau.Ligne1;
+import fr.perrin.trains.reseau.Ligne2;
 import fr.perrin.trains.reseau.Longueur;
 import fr.perrin.trains.reseau.Minus;
 import fr.perrin.trains.reseau.Model;
@@ -80,6 +84,9 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case ReseauPackage.DEGREE:
 				sequence_Puissance(context, (Degree) semanticObject); 
 				return; 
+			case ReseauPackage.DERNIER:
+				sequence_PrimaryExpression(context, (Dernier) semanticObject); 
+				return; 
 			case ReseauPackage.DIV:
 				sequence_Multiplication(context, (Div) semanticObject); 
 				return; 
@@ -91,6 +98,15 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case ReseauPackage.I:
 				sequence_PrimaryExpression(context, (I) semanticObject); 
+				return; 
+			case ReseauPackage.INTERSECTION:
+				sequence_PrimaryExpression(context, (Intersection) semanticObject); 
+				return; 
+			case ReseauPackage.LIGNE1:
+				sequence_Ligne1(context, (Ligne1) semanticObject); 
+				return; 
+			case ReseauPackage.LIGNE2:
+				sequence_Ligne2(context, (Ligne2) semanticObject); 
 				return; 
 			case ReseauPackage.LONGUEUR:
 				sequence_PrimaryExpression(context, (Longueur) semanticObject); 
@@ -247,6 +263,50 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Ligne returns Ligne1
+	 *     Ligne1 returns Ligne1
+	 *
+	 * Constraint:
+	 *     (p1=Point p2=Point)
+	 */
+	protected void sequence_Ligne1(ISerializationContext context, Ligne1 semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ReseauPackage.Literals.LIGNE__P1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ReseauPackage.Literals.LIGNE__P1));
+			if (transientValues.isValueTransient(semanticObject, ReseauPackage.Literals.LIGNE__P2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ReseauPackage.Literals.LIGNE__P2));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLigne1Access().getP1PointParserRuleCall_1_0(), semanticObject.getP1());
+		feeder.accept(grammarAccess.getLigne1Access().getP2PointParserRuleCall_3_0(), semanticObject.getP2());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Ligne returns Ligne2
+	 *     Ligne2 returns Ligne2
+	 *
+	 * Constraint:
+	 *     (p1=Point p2=Point)
+	 */
+	protected void sequence_Ligne2(ISerializationContext context, Ligne2 semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ReseauPackage.Literals.LIGNE__P1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ReseauPackage.Literals.LIGNE__P1));
+			if (transientValues.isValueTransient(semanticObject, ReseauPackage.Literals.LIGNE__P2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ReseauPackage.Literals.LIGNE__P2));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLigne2Access().getP1PointParserRuleCall_1_0(), semanticObject.getP1());
+		feeder.accept(grammarAccess.getLigne2Access().getP2PointParserRuleCall_3_0(), semanticObject.getP2());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Model returns Model
 	 *
 	 * Constraint:
@@ -273,7 +333,7 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     PrimaryExpression.CoordonneeLiteral_0_2_0 returns Div
 	 *
 	 * Constraint:
-	 *     (left=Multiplication_Div_1_0_1_0 right=Multiplication)
+	 *     (left=Multiplication_Div_1_0_1_0 right=Puissance)
 	 */
 	protected void sequence_Multiplication(ISerializationContext context, Div semanticObject) {
 		if (errorAcceptor != null) {
@@ -284,7 +344,7 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMultiplicationAccess().getDivLeftAction_1_0_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getMultiplicationAccess().getRightMultiplicationParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getMultiplicationAccess().getRightPuissanceParserRuleCall_1_1_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -305,7 +365,7 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     PrimaryExpression.CoordonneeLiteral_0_2_0 returns Multi
 	 *
 	 * Constraint:
-	 *     (left=Multiplication_Multi_1_0_0_0 right=Multiplication)
+	 *     (left=Multiplication_Multi_1_0_0_0 right=Puissance)
 	 */
 	protected void sequence_Multiplication(ISerializationContext context, Multi semanticObject) {
 		if (errorAcceptor != null) {
@@ -316,7 +376,7 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMultiplicationAccess().getMultiLeftAction_1_0_0_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getMultiplicationAccess().getRightMultiplicationParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getMultiplicationAccess().getRightPuissanceParserRuleCall_1_1_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -345,7 +405,7 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ReseauPackage.Literals.ANGLE__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_14_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_15_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -374,7 +434,7 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ReseauPackage.Literals.ARGUMENT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_15_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_16_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -437,6 +497,29 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getDeclDeclarationPointIDTerminalRuleCall_3_1_0_1(), semanticObject.eGet(ReseauPackage.Literals.DECLARED__DECL, false));
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Point returns Dernier
+	 *     Addition returns Dernier
+	 *     Addition.Plus_1_0_0_0 returns Dernier
+	 *     Addition.Minus_1_0_1_0 returns Dernier
+	 *     Multiplication returns Dernier
+	 *     Multiplication.Multi_1_0_0_0 returns Dernier
+	 *     Multiplication.Div_1_0_1_0 returns Dernier
+	 *     Puissance returns Dernier
+	 *     Puissance.Degree_1_0_0 returns Dernier
+	 *     Puissance.Pow_1_1_0 returns Dernier
+	 *     PrimaryExpression returns Dernier
+	 *     PrimaryExpression.CoordonneeLiteral_0_2_0 returns Dernier
+	 *
+	 * Constraint:
+	 *     {Dernier}
+	 */
+	protected void sequence_PrimaryExpression(ISerializationContext context, Dernier semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -511,6 +594,38 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Point returns Intersection
+	 *     Addition returns Intersection
+	 *     Addition.Plus_1_0_0_0 returns Intersection
+	 *     Addition.Minus_1_0_1_0 returns Intersection
+	 *     Multiplication returns Intersection
+	 *     Multiplication.Multi_1_0_0_0 returns Intersection
+	 *     Multiplication.Div_1_0_1_0 returns Intersection
+	 *     Puissance returns Intersection
+	 *     Puissance.Degree_1_0_0 returns Intersection
+	 *     Puissance.Pow_1_1_0 returns Intersection
+	 *     PrimaryExpression returns Intersection
+	 *     PrimaryExpression.CoordonneeLiteral_0_2_0 returns Intersection
+	 *
+	 * Constraint:
+	 *     (l1=Ligne l2=Ligne)
+	 */
+	protected void sequence_PrimaryExpression(ISerializationContext context, Intersection semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ReseauPackage.Literals.INTERSECTION__L1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ReseauPackage.Literals.INTERSECTION__L1));
+			if (transientValues.isValueTransient(semanticObject, ReseauPackage.Literals.INTERSECTION__L2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ReseauPackage.Literals.INTERSECTION__L2));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getL1LigneParserRuleCall_17_1_0(), semanticObject.getL1());
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getL2LigneParserRuleCall_17_3_0(), semanticObject.getL2());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Point returns Longueur
 	 *     Addition returns Longueur
 	 *     Addition.Plus_1_0_0_0 returns Longueur
@@ -533,7 +648,7 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ReseauPackage.Literals.LONGUEUR__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_13_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_14_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -712,7 +827,7 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ReseauPackage.Literals.X__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_11_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_12_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -741,7 +856,7 @@ public class ReseauSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ReseauPackage.Literals.Y__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_12_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_13_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

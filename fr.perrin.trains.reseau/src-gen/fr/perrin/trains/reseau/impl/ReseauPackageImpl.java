@@ -10,9 +10,14 @@ import fr.perrin.trains.reseau.CoordonneeLiteral;
 import fr.perrin.trains.reseau.DeclarationPoint;
 import fr.perrin.trains.reseau.Declared;
 import fr.perrin.trains.reseau.Degree;
+import fr.perrin.trains.reseau.Dernier;
 import fr.perrin.trains.reseau.Div;
 import fr.perrin.trains.reseau.Est;
 import fr.perrin.trains.reseau.Euler;
+import fr.perrin.trains.reseau.Intersection;
+import fr.perrin.trains.reseau.Ligne;
+import fr.perrin.trains.reseau.Ligne1;
+import fr.perrin.trains.reseau.Ligne2;
 import fr.perrin.trains.reseau.Longueur;
 import fr.perrin.trains.reseau.Minus;
 import fr.perrin.trains.reseau.Model;
@@ -67,6 +72,27 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
    * @generated
    */
   private EClass pointEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ligneEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ligne1EClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ligne2EClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -171,6 +197,13 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass dernierEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass nordEClass = null;
 
   /**
@@ -249,6 +282,13 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
    * @generated
    */
   private EClass argumentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass intersectionEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -388,6 +428,61 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
   public EClass getPoint()
   {
     return pointEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLigne()
+  {
+    return ligneEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLigne_P1()
+  {
+    return (EReference)ligneEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLigne_P2()
+  {
+    return (EReference)ligneEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLigne1()
+  {
+    return ligne1EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLigne2()
+  {
+    return ligne2EClass;
   }
 
   /**
@@ -792,6 +887,17 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
    * @generated
    */
   @Override
+  public EClass getDernier()
+  {
+    return dernierEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getNord()
   {
     return nordEClass;
@@ -979,6 +1085,39 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
    * @generated
    */
   @Override
+  public EClass getIntersection()
+  {
+    return intersectionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIntersection_L1()
+  {
+    return (EReference)intersectionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIntersection_L2()
+  {
+    return (EReference)intersectionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ReseauFactory getReseauFactory()
   {
     return (ReseauFactory)getEFactoryInstance();
@@ -1013,6 +1152,14 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
     createEReference(declarationPointEClass, DECLARATION_POINT__XY);
 
     pointEClass = createEClass(POINT);
+
+    ligneEClass = createEClass(LIGNE);
+    createEReference(ligneEClass, LIGNE__P1);
+    createEReference(ligneEClass, LIGNE__P2);
+
+    ligne1EClass = createEClass(LIGNE1);
+
+    ligne2EClass = createEClass(LIGNE2);
 
     segmentEClass = createEClass(SEGMENT);
     createEAttribute(segmentEClass, SEGMENT__NAME);
@@ -1064,6 +1211,8 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
     declaredEClass = createEClass(DECLARED);
     createEReference(declaredEClass, DECLARED__DECL);
 
+    dernierEClass = createEClass(DERNIER);
+
     nordEClass = createEClass(NORD);
 
     sudEClass = createEClass(SUD);
@@ -1092,6 +1241,10 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
 
     argumentEClass = createEClass(ARGUMENT);
     createEReference(argumentEClass, ARGUMENT__VALUE);
+
+    intersectionEClass = createEClass(INTERSECTION);
+    createEReference(intersectionEClass, INTERSECTION__L1);
+    createEReference(intersectionEClass, INTERSECTION__L2);
   }
 
   /**
@@ -1123,6 +1276,8 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    ligne1EClass.getESuperTypes().add(this.getLigne());
+    ligne2EClass.getESuperTypes().add(this.getLigne());
     plusEClass.getESuperTypes().add(this.getPoint());
     minusEClass.getESuperTypes().add(this.getPoint());
     multiEClass.getESuperTypes().add(this.getPoint());
@@ -1133,6 +1288,7 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
     numberLiteralEClass.getESuperTypes().add(this.getPoint());
     negativeEClass.getESuperTypes().add(this.getPoint());
     declaredEClass.getESuperTypes().add(this.getPoint());
+    dernierEClass.getESuperTypes().add(this.getPoint());
     nordEClass.getESuperTypes().add(this.getPoint());
     sudEClass.getESuperTypes().add(this.getPoint());
     estEClass.getESuperTypes().add(this.getPoint());
@@ -1145,6 +1301,7 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
     longueurEClass.getESuperTypes().add(this.getPoint());
     angleEClass.getESuperTypes().add(this.getPoint());
     argumentEClass.getESuperTypes().add(this.getPoint());
+    intersectionEClass.getESuperTypes().add(this.getPoint());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1156,6 +1313,14 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
     initEReference(getDeclarationPoint_Xy(), this.getPoint(), null, "xy", null, 0, 1, DeclarationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(ligneEClass, Ligne.class, "Ligne", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLigne_P1(), this.getPoint(), null, "p1", null, 0, 1, Ligne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLigne_P2(), this.getPoint(), null, "p2", null, 0, 1, Ligne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ligne1EClass, Ligne1.class, "Ligne1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(ligne2EClass, Ligne2.class, "Ligne2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(segmentEClass, Segment.class, "Segment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSegment_Name(), ecorePackage.getEString(), "name", null, 0, 1, Segment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1207,6 +1372,8 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
     initEClass(declaredEClass, Declared.class, "Declared", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeclared_Decl(), this.getDeclarationPoint(), null, "Decl", null, 0, 1, Declared.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(dernierEClass, Dernier.class, "Dernier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(nordEClass, Nord.class, "Nord", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(sudEClass, Sud.class, "Sud", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1235,6 +1402,10 @@ public class ReseauPackageImpl extends EPackageImpl implements ReseauPackage
 
     initEClass(argumentEClass, Argument.class, "Argument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArgument_Value(), this.getPoint(), null, "value", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(intersectionEClass, Intersection.class, "Intersection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIntersection_L1(), this.getLigne(), null, "l1", null, 0, 1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIntersection_L2(), this.getLigne(), null, "l2", null, 0, 1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -68,7 +68,9 @@ public class ReseauSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'sud' (rule start)
 	 *     (rule start) (ambiguity) 'x' '(' value=Point
 	 *     (rule start) (ambiguity) 'y' '(' value=Point
+	 *     (rule start) (ambiguity) '~' (rule start)
 	 *     (rule start) (ambiguity) Decl=[DeclarationPoint|ID]
+	 *     (rule start) (ambiguity) l1=Ligne
 	 *     (rule start) (ambiguity) value=NUMBER
 	 *     (rule start) (ambiguity) {CoordonneeLiteral.left=}
 	 *     (rule start) (ambiguity) {Degree.left=}
@@ -100,7 +102,9 @@ public class ReseauSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'sud' (rule start)
 	 *     (rule start) (ambiguity) 'x' '(' value=Point
 	 *     (rule start) (ambiguity) 'y' '(' value=Point
+	 *     (rule start) (ambiguity) '~' (rule start)
 	 *     (rule start) (ambiguity) Decl=[DeclarationPoint|ID]
+	 *     (rule start) (ambiguity) l1=Ligne
 	 *     (rule start) (ambiguity) value=NUMBER
 	 *     (rule start) (ambiguity) {CoordonneeLiteral.left=}
 	 *     (rule start) (ambiguity) {Degree.left=}

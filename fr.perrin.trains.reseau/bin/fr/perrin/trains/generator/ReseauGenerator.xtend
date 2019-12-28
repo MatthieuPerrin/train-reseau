@@ -26,6 +26,7 @@ class ReseauGenerator extends AbstractGenerator {
 	def Iterable<Segment> getSegments (Resource resource) {
 		return resource.allContents.toIterable.filter(Segment);
 	}
+	
 	def Iterable<DeclarationPoint> getPoints (Resource resource) {
 		return resource.allContents.toIterable.filter(DeclarationPoint);
 	}

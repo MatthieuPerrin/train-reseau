@@ -151,6 +151,117 @@ public interface ReseauPackage extends EPackage
   int POINT_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link fr.perrin.trains.reseau.impl.LigneImpl <em>Ligne</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.perrin.trains.reseau.impl.LigneImpl
+   * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getLigne()
+   * @generated
+   */
+  int LIGNE = 3;
+
+  /**
+   * The feature id for the '<em><b>P1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIGNE__P1 = 0;
+
+  /**
+   * The feature id for the '<em><b>P2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIGNE__P2 = 1;
+
+  /**
+   * The number of structural features of the '<em>Ligne</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIGNE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link fr.perrin.trains.reseau.impl.Ligne1Impl <em>Ligne1</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.perrin.trains.reseau.impl.Ligne1Impl
+   * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getLigne1()
+   * @generated
+   */
+  int LIGNE1 = 4;
+
+  /**
+   * The feature id for the '<em><b>P1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIGNE1__P1 = LIGNE__P1;
+
+  /**
+   * The feature id for the '<em><b>P2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIGNE1__P2 = LIGNE__P2;
+
+  /**
+   * The number of structural features of the '<em>Ligne1</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIGNE1_FEATURE_COUNT = LIGNE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link fr.perrin.trains.reseau.impl.Ligne2Impl <em>Ligne2</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.perrin.trains.reseau.impl.Ligne2Impl
+   * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getLigne2()
+   * @generated
+   */
+  int LIGNE2 = 5;
+
+  /**
+   * The feature id for the '<em><b>P1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIGNE2__P1 = LIGNE__P1;
+
+  /**
+   * The feature id for the '<em><b>P2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIGNE2__P2 = LIGNE__P2;
+
+  /**
+   * The number of structural features of the '<em>Ligne2</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIGNE2_FEATURE_COUNT = LIGNE_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link fr.perrin.trains.reseau.impl.SegmentImpl <em>Segment</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -158,7 +269,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getSegment()
    * @generated
    */
-  int SEGMENT = 3;
+  int SEGMENT = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -195,7 +306,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getSegmentPart()
    * @generated
    */
-  int SEGMENT_PART = 4;
+  int SEGMENT_PART = 7;
 
   /**
    * The feature id for the '<em><b>Fst</b></em>' containment reference.
@@ -232,7 +343,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getUnidir()
    * @generated
    */
-  int UNIDIR = 5;
+  int UNIDIR = 8;
 
   /**
    * The feature id for the '<em><b>Pts</b></em>' containment reference list.
@@ -260,7 +371,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getBidir()
    * @generated
    */
-  int BIDIR = 6;
+  int BIDIR = 9;
 
   /**
    * The feature id for the '<em><b>Pts</b></em>' containment reference list.
@@ -288,7 +399,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 7;
+  int PLUS = 10;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -325,7 +436,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 8;
+  int MINUS = 11;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -362,7 +473,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getMulti()
    * @generated
    */
-  int MULTI = 9;
+  int MULTI = 12;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -399,7 +510,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getDiv()
    * @generated
    */
-  int DIV = 10;
+  int DIV = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -436,7 +547,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getDegree()
    * @generated
    */
-  int DEGREE = 11;
+  int DEGREE = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -464,7 +575,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getPow()
    * @generated
    */
-  int POW = 12;
+  int POW = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -501,7 +612,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getCoordonneeLiteral()
    * @generated
    */
-  int COORDONNEE_LITERAL = 13;
+  int COORDONNEE_LITERAL = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -538,7 +649,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getNumberLiteral()
    * @generated
    */
-  int NUMBER_LITERAL = 14;
+  int NUMBER_LITERAL = 17;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -566,7 +677,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getNegative()
    * @generated
    */
-  int NEGATIVE = 15;
+  int NEGATIVE = 18;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -594,7 +705,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getDeclared()
    * @generated
    */
-  int DECLARED = 16;
+  int DECLARED = 19;
 
   /**
    * The feature id for the '<em><b>Decl</b></em>' reference.
@@ -615,6 +726,25 @@ public interface ReseauPackage extends EPackage
   int DECLARED_FEATURE_COUNT = POINT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link fr.perrin.trains.reseau.impl.DernierImpl <em>Dernier</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.perrin.trains.reseau.impl.DernierImpl
+   * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getDernier()
+   * @generated
+   */
+  int DERNIER = 20;
+
+  /**
+   * The number of structural features of the '<em>Dernier</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DERNIER_FEATURE_COUNT = POINT_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link fr.perrin.trains.reseau.impl.NordImpl <em>Nord</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -622,7 +752,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getNord()
    * @generated
    */
-  int NORD = 17;
+  int NORD = 21;
 
   /**
    * The number of structural features of the '<em>Nord</em>' class.
@@ -641,7 +771,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getSud()
    * @generated
    */
-  int SUD = 18;
+  int SUD = 22;
 
   /**
    * The number of structural features of the '<em>Sud</em>' class.
@@ -660,7 +790,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getEst()
    * @generated
    */
-  int EST = 19;
+  int EST = 23;
 
   /**
    * The number of structural features of the '<em>Est</em>' class.
@@ -679,7 +809,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getOuest()
    * @generated
    */
-  int OUEST = 20;
+  int OUEST = 24;
 
   /**
    * The number of structural features of the '<em>Ouest</em>' class.
@@ -698,7 +828,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getPi()
    * @generated
    */
-  int PI = 21;
+  int PI = 25;
 
   /**
    * The number of structural features of the '<em>Pi</em>' class.
@@ -717,7 +847,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getEuler()
    * @generated
    */
-  int EULER = 22;
+  int EULER = 26;
 
   /**
    * The number of structural features of the '<em>Euler</em>' class.
@@ -736,7 +866,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getI()
    * @generated
    */
-  int I = 23;
+  int I = 27;
 
   /**
    * The number of structural features of the '<em>I</em>' class.
@@ -755,7 +885,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getX()
    * @generated
    */
-  int X = 24;
+  int X = 28;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -783,7 +913,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getY()
    * @generated
    */
-  int Y = 25;
+  int Y = 29;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -811,7 +941,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getLongueur()
    * @generated
    */
-  int LONGUEUR = 26;
+  int LONGUEUR = 30;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -839,7 +969,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getAngle()
    * @generated
    */
-  int ANGLE = 27;
+  int ANGLE = 31;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -867,7 +997,7 @@ public interface ReseauPackage extends EPackage
    * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getArgument()
    * @generated
    */
-  int ARGUMENT = 28;
+  int ARGUMENT = 32;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -886,6 +1016,43 @@ public interface ReseauPackage extends EPackage
    * @ordered
    */
   int ARGUMENT_FEATURE_COUNT = POINT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link fr.perrin.trains.reseau.impl.IntersectionImpl <em>Intersection</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.perrin.trains.reseau.impl.IntersectionImpl
+   * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getIntersection()
+   * @generated
+   */
+  int INTERSECTION = 33;
+
+  /**
+   * The feature id for the '<em><b>L1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERSECTION__L1 = POINT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>L2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERSECTION__L2 = POINT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Intersection</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERSECTION_FEATURE_COUNT = POINT_FEATURE_COUNT + 2;
 
 
   /**
@@ -961,6 +1128,58 @@ public interface ReseauPackage extends EPackage
    * @generated
    */
   EClass getPoint();
+
+  /**
+   * Returns the meta object for class '{@link fr.perrin.trains.reseau.Ligne <em>Ligne</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ligne</em>'.
+   * @see fr.perrin.trains.reseau.Ligne
+   * @generated
+   */
+  EClass getLigne();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.perrin.trains.reseau.Ligne#getP1 <em>P1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>P1</em>'.
+   * @see fr.perrin.trains.reseau.Ligne#getP1()
+   * @see #getLigne()
+   * @generated
+   */
+  EReference getLigne_P1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.perrin.trains.reseau.Ligne#getP2 <em>P2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>P2</em>'.
+   * @see fr.perrin.trains.reseau.Ligne#getP2()
+   * @see #getLigne()
+   * @generated
+   */
+  EReference getLigne_P2();
+
+  /**
+   * Returns the meta object for class '{@link fr.perrin.trains.reseau.Ligne1 <em>Ligne1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ligne1</em>'.
+   * @see fr.perrin.trains.reseau.Ligne1
+   * @generated
+   */
+  EClass getLigne1();
+
+  /**
+   * Returns the meta object for class '{@link fr.perrin.trains.reseau.Ligne2 <em>Ligne2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ligne2</em>'.
+   * @see fr.perrin.trains.reseau.Ligne2
+   * @generated
+   */
+  EClass getLigne2();
 
   /**
    * Returns the meta object for class '{@link fr.perrin.trains.reseau.Segment <em>Segment</em>}'.
@@ -1345,6 +1564,16 @@ public interface ReseauPackage extends EPackage
   EReference getDeclared_Decl();
 
   /**
+   * Returns the meta object for class '{@link fr.perrin.trains.reseau.Dernier <em>Dernier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Dernier</em>'.
+   * @see fr.perrin.trains.reseau.Dernier
+   * @generated
+   */
+  EClass getDernier();
+
+  /**
    * Returns the meta object for class '{@link fr.perrin.trains.reseau.Nord <em>Nord</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1520,6 +1749,38 @@ public interface ReseauPackage extends EPackage
   EReference getArgument_Value();
 
   /**
+   * Returns the meta object for class '{@link fr.perrin.trains.reseau.Intersection <em>Intersection</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Intersection</em>'.
+   * @see fr.perrin.trains.reseau.Intersection
+   * @generated
+   */
+  EClass getIntersection();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.perrin.trains.reseau.Intersection#getL1 <em>L1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>L1</em>'.
+   * @see fr.perrin.trains.reseau.Intersection#getL1()
+   * @see #getIntersection()
+   * @generated
+   */
+  EReference getIntersection_L1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.perrin.trains.reseau.Intersection#getL2 <em>L2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>L2</em>'.
+   * @see fr.perrin.trains.reseau.Intersection#getL2()
+   * @see #getIntersection()
+   * @generated
+   */
+  EReference getIntersection_L2();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1603,6 +1864,52 @@ public interface ReseauPackage extends EPackage
      * @generated
      */
     EClass POINT = eINSTANCE.getPoint();
+
+    /**
+     * The meta object literal for the '{@link fr.perrin.trains.reseau.impl.LigneImpl <em>Ligne</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.perrin.trains.reseau.impl.LigneImpl
+     * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getLigne()
+     * @generated
+     */
+    EClass LIGNE = eINSTANCE.getLigne();
+
+    /**
+     * The meta object literal for the '<em><b>P1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LIGNE__P1 = eINSTANCE.getLigne_P1();
+
+    /**
+     * The meta object literal for the '<em><b>P2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LIGNE__P2 = eINSTANCE.getLigne_P2();
+
+    /**
+     * The meta object literal for the '{@link fr.perrin.trains.reseau.impl.Ligne1Impl <em>Ligne1</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.perrin.trains.reseau.impl.Ligne1Impl
+     * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getLigne1()
+     * @generated
+     */
+    EClass LIGNE1 = eINSTANCE.getLigne1();
+
+    /**
+     * The meta object literal for the '{@link fr.perrin.trains.reseau.impl.Ligne2Impl <em>Ligne2</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.perrin.trains.reseau.impl.Ligne2Impl
+     * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getLigne2()
+     * @generated
+     */
+    EClass LIGNE2 = eINSTANCE.getLigne2();
 
     /**
      * The meta object literal for the '{@link fr.perrin.trains.reseau.impl.SegmentImpl <em>Segment</em>}' class.
@@ -1921,6 +2228,16 @@ public interface ReseauPackage extends EPackage
     EReference DECLARED__DECL = eINSTANCE.getDeclared_Decl();
 
     /**
+     * The meta object literal for the '{@link fr.perrin.trains.reseau.impl.DernierImpl <em>Dernier</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.perrin.trains.reseau.impl.DernierImpl
+     * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getDernier()
+     * @generated
+     */
+    EClass DERNIER = eINSTANCE.getDernier();
+
+    /**
      * The meta object literal for the '{@link fr.perrin.trains.reseau.impl.NordImpl <em>Nord</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2079,6 +2396,32 @@ public interface ReseauPackage extends EPackage
      * @generated
      */
     EReference ARGUMENT__VALUE = eINSTANCE.getArgument_Value();
+
+    /**
+     * The meta object literal for the '{@link fr.perrin.trains.reseau.impl.IntersectionImpl <em>Intersection</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.perrin.trains.reseau.impl.IntersectionImpl
+     * @see fr.perrin.trains.reseau.impl.ReseauPackageImpl#getIntersection()
+     * @generated
+     */
+    EClass INTERSECTION = eINSTANCE.getIntersection();
+
+    /**
+     * The meta object literal for the '<em><b>L1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERSECTION__L1 = eINSTANCE.getIntersection_L1();
+
+    /**
+     * The meta object literal for the '<em><b>L2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERSECTION__L2 = eINSTANCE.getIntersection_L2();
 
   }
 

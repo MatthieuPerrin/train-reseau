@@ -36,6 +36,7 @@ public class ReseauParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMultiplicationAccess().getAlternatives_1_0(), "rule__Multiplication__Alternatives_1_0");
 			builder.put(grammarAccess.getPuissanceAccess().getAlternatives_1(), "rule__Puissance__Alternatives_1");
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getAlternatives(), "rule__PrimaryExpression__Alternatives");
+			builder.put(grammarAccess.getLigneAccess().getAlternatives(), "rule__Ligne__Alternatives");
 			builder.put(grammarAccess.getSegmentPartAccess().getNextAlternatives_1_0(), "rule__SegmentPart__NextAlternatives_1_0");
 			builder.put(grammarAccess.getDeclarationPointAccess().getGroup(), "rule__DeclarationPoint__Group__0");
 			builder.put(grammarAccess.getAdditionAccess().getGroup(), "rule__Addition__Group__0");
@@ -66,6 +67,10 @@ public class ReseauParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getGroup_13(), "rule__PrimaryExpression__Group_13__0");
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getGroup_14(), "rule__PrimaryExpression__Group_14__0");
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getGroup_15(), "rule__PrimaryExpression__Group_15__0");
+			builder.put(grammarAccess.getPrimaryExpressionAccess().getGroup_16(), "rule__PrimaryExpression__Group_16__0");
+			builder.put(grammarAccess.getPrimaryExpressionAccess().getGroup_17(), "rule__PrimaryExpression__Group_17__0");
+			builder.put(grammarAccess.getLigne1Access().getGroup(), "rule__Ligne1__Group__0");
+			builder.put(grammarAccess.getLigne2Access().getGroup(), "rule__Ligne2__Group__0");
 			builder.put(grammarAccess.getSegmentAccess().getGroup(), "rule__Segment__Group__0");
 			builder.put(grammarAccess.getSegmentPartAccess().getGroup(), "rule__SegmentPart__Group__0");
 			builder.put(grammarAccess.getUnidirAccess().getGroup(), "rule__Unidir__Group__0");
@@ -81,11 +86,17 @@ public class ReseauParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getValueAssignment_1_1(), "rule__PrimaryExpression__ValueAssignment_1_1");
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getValueAssignment_2_2(), "rule__PrimaryExpression__ValueAssignment_2_2");
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getDeclAssignment_3_1(), "rule__PrimaryExpression__DeclAssignment_3_1");
-			builder.put(grammarAccess.getPrimaryExpressionAccess().getValueAssignment_11_3(), "rule__PrimaryExpression__ValueAssignment_11_3");
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getValueAssignment_12_3(), "rule__PrimaryExpression__ValueAssignment_12_3");
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getValueAssignment_13_3(), "rule__PrimaryExpression__ValueAssignment_13_3");
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getValueAssignment_14_3(), "rule__PrimaryExpression__ValueAssignment_14_3");
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getValueAssignment_15_3(), "rule__PrimaryExpression__ValueAssignment_15_3");
+			builder.put(grammarAccess.getPrimaryExpressionAccess().getValueAssignment_16_3(), "rule__PrimaryExpression__ValueAssignment_16_3");
+			builder.put(grammarAccess.getPrimaryExpressionAccess().getL1Assignment_17_1(), "rule__PrimaryExpression__L1Assignment_17_1");
+			builder.put(grammarAccess.getPrimaryExpressionAccess().getL2Assignment_17_3(), "rule__PrimaryExpression__L2Assignment_17_3");
+			builder.put(grammarAccess.getLigne1Access().getP1Assignment_1(), "rule__Ligne1__P1Assignment_1");
+			builder.put(grammarAccess.getLigne1Access().getP2Assignment_3(), "rule__Ligne1__P2Assignment_3");
+			builder.put(grammarAccess.getLigne2Access().getP1Assignment_1(), "rule__Ligne2__P1Assignment_1");
+			builder.put(grammarAccess.getLigne2Access().getP2Assignment_3(), "rule__Ligne2__P2Assignment_3");
 			builder.put(grammarAccess.getSegmentAccess().getNameAssignment_1(), "rule__Segment__NameAssignment_1");
 			builder.put(grammarAccess.getSegmentAccess().getPartsAssignment_3(), "rule__Segment__PartsAssignment_3");
 			builder.put(grammarAccess.getSegmentPartAccess().getFstAssignment_0(), "rule__SegmentPart__FstAssignment_0");

@@ -30,6 +30,10 @@ import fr.perrin.trains.reseau.Longueur
 import fr.perrin.trains.reseau.Angle
 import fr.perrin.trains.reseau.Argument
 import fr.perrin.trains.reseau.Point
+import fr.perrin.trains.reseau.Intersection
+import fr.perrin.trains.reseau.Ligne1
+import fr.perrin.trains.reseau.Ligne2
+import fr.perrin.trains.reseau.Dernier
 
 /**
  * Generates code from your model files on save.
@@ -38,81 +42,96 @@ import fr.perrin.trains.reseau.Point
  */
 class PointToComplex {
 
+	Complex ans = new Complex(0,0);
 	HashMap<String, Complex> values
+
+	def setAnswer(Complex c) {
+		ans = c
+	}
 
 	def initialize (Resource resource) {
 		values = new HashMap<String, Complex>()
 		for(DeclarationPoint decl :  resource.allContents.toIterable.filter(DeclarationPoint)) {
-			values.put(decl.name,evaluate(decl.xy));
+			ans = internalEvaluate(decl.xy);
+			values.put(decl.name,ans);
 		}
 	}
 
 	def Complex evaluate(Point obj) {
+		ans = internalEvaluate(obj);
+		return ans
+	}
+
+	def dispatch private Complex internalEvaluate(Point obj) {
 		return internalEvaluate(obj)
 	}
 
-	def dispatch protected Complex internalEvaluate(CoordonneeLiteral c) {
-		val left = evaluate(c.left)
-		val right = evaluate(c.right)
+	def dispatch private Complex internalEvaluate(CoordonneeLiteral c) {
+		val left = internalEvaluate(c.left)
+		val right = internalEvaluate(c.right)
 		return new Complex(left.x - right.y, left.y + right.x)
 	}
 
-	def dispatch protected Complex internalEvaluate(NumberLiteral n) {
+	def dispatch private Complex internalEvaluate(NumberLiteral n) {
 		return new Complex(n.value,0);
 	}
 
-	def dispatch protected Complex internalEvaluate(Negative p) {
-		val value = evaluate(p.value)
+	def dispatch private Complex internalEvaluate(Negative p) {
+		val value = internalEvaluate(p.value)
 		return new Complex(-value.x, -value.y);
 	}
 
-	def dispatch protected Complex internalEvaluate(Plus plus) {
-		return Complex.sum(evaluate(plus.left), evaluate(plus.right))
+	def dispatch private Complex internalEvaluate(Plus plus) {
+		return Complex.sum(internalEvaluate(plus.left), internalEvaluate(plus.right))
 	}
 
-	def dispatch protected Complex internalEvaluate(Minus minus) {
-		return Complex.sub(evaluate(minus.left), evaluate(minus.right))
-	}
-
-	def dispatch protected Complex internalEvaluate(Div div) {
-		return Complex.div(evaluate(div.left), evaluate(div.right))
-	}
-
-	def dispatch protected Complex internalEvaluate(Multi multi) {
-		return Complex.mult(evaluate(multi.left), evaluate(multi.right))
-	}
-
-	def dispatch protected Complex internalEvaluate(Degree degre) {
-		return new Complex(Math.cos(Math.PI * evaluate(degre.left).x/180), Math.sin(Math.PI * evaluate(degre.left).x/180))
+	def dispatch private Complex internalEvaluate(Minus minus) {
+		return Complex.sub(internalEvaluate(minus.left), internalEvaluate(minus.right))
 	}
 	
-	def dispatch protected Complex internalEvaluate(Pow pow) {
-		return Complex.pow(evaluate(pow.left), evaluate(pow.right))
+	def dispatch private Complex internalEvaluate(Div div) {
+		return Complex.div(internalEvaluate(div.left), internalEvaluate(div.right))
 	}
 
-	def dispatch protected Complex internalEvaluate(Nord n) {
+	def dispatch private Complex internalEvaluate(Multi multi) {
+		return Complex.mult(internalEvaluate(multi.left), internalEvaluate(multi.right))
+	}
+
+	def dispatch private Complex internalEvaluate(Degree degre) {
+		return new Complex(Math.cos(Math.PI * internalEvaluate(degre.left).x/180), Math.sin(Math.PI * internalEvaluate(degre.left).x/180))
+	}
+	
+	def dispatch private Complex internalEvaluate(Pow pow) {
+		return Complex.pow(internalEvaluate(pow.left), internalEvaluate(pow.right))
+	}
+
+	def dispatch private Complex internalEvaluate(Dernier dernier) {
+		return ans;
+	}
+
+	def dispatch private Complex internalEvaluate(Nord n) {
 		return new Complex(0,1);
 	}
-	def dispatch protected Complex internalEvaluate(Sud s) {
+	def dispatch private Complex internalEvaluate(Sud s) {
 		return new Complex(0,-1);
 	}
-	def dispatch protected Complex internalEvaluate(Est e) {
+	def dispatch private Complex internalEvaluate(Est e) {
 		return new Complex(1,0);
 	}
-	def dispatch protected Complex internalEvaluate(Ouest o) {
+	def dispatch private Complex internalEvaluate(Ouest o) {
 		return new Complex(-1,0);
 	}
-	def dispatch protected Complex internalEvaluate(I i) {
+	def dispatch private Complex internalEvaluate(I i) {
 		return new Complex(0,1);
 	}
-	def dispatch protected Complex internalEvaluate(Pi pi) {
+	def dispatch private Complex internalEvaluate(Pi pi) {
 		return new Complex(Math.PI,0);
 	}
-	def dispatch protected Complex internalEvaluate(Euler e) {
+	def dispatch private Complex internalEvaluate(Euler e) {
 		return new Complex(Math.E,0);
 	}
 
-	def dispatch protected Complex internalEvaluate(Declared d) {
+	def dispatch private Complex internalEvaluate(Declared d) {
 		if(values.containsKey(d.decl.name)) {
 			return values.get(d.decl.name);
 		} else {
@@ -120,24 +139,40 @@ class PointToComplex {
 		}
 	}
 
-	def dispatch protected Complex internalEvaluate(X p) {
-		return new Complex(evaluate(p.value).x, 0);
+	def dispatch private Complex internalEvaluate(X p) {
+		return new Complex(internalEvaluate(p.value).x, 0);
 	}
 
-	def dispatch protected Complex internalEvaluate(Y p) {
-		return new Complex(evaluate(p.value).y, 0);
+	def dispatch private Complex internalEvaluate(Y p) {
+		return new Complex(0, internalEvaluate(p.value).y);
 	}
 
-	def dispatch protected Complex internalEvaluate(Longueur p) {
-		return new Complex(evaluate(p.value).longueur, 0);
+	def dispatch private Complex internalEvaluate(Longueur p) {
+		return new Complex(internalEvaluate(p.value).longueur, 0);
 	}
 
-	def dispatch protected Complex internalEvaluate(Angle p) {
-		return new Complex(180*evaluate(p.value).angle / Math.PI, 0);
+	def dispatch private Complex internalEvaluate(Angle p) {
+		return new Complex(180*internalEvaluate(p.value).angle / Math.PI, 0);
 	}
 
-	def dispatch protected Complex internalEvaluate(Argument p) {
-		return new Complex(evaluate(p.value).angle, 0);
+	def dispatch private Complex internalEvaluate(Argument p) {
+		return new Complex(internalEvaluate(p.value).angle, 0);
+	}
+	
+	def dispatch private Complex internalEvaluate(Intersection intersection) {
+		var p1 = internalEvaluate(intersection.l1.p1);
+		var d1 = getDirectionInLine(intersection.l1);
+		var p2 = internalEvaluate(intersection.l2.p1);
+		var d2 = getDirectionInLine(intersection.l2);
+		var t = ((p1.x - p2.x) * d1.y - (p1.y - p2.y) * d1.x) / (d2.x * d1.y - d1.x * d2.y);
+		return new Complex(p2.x + t * d2.x, p2.y + t * d2.y);
+	}
+
+	def dispatch private Complex getDirectionInLine(Ligne1 line) {
+		return Complex.sub(internalEvaluate(line.p2), internalEvaluate(line.p1));
+	}
+	def dispatch private Complex getDirectionInLine(Ligne2 line) {
+		return internalEvaluate(line.p2);
 	}
 
 	def printNew (Complex c) '''new Complex(«c.x», «c.y»)'''

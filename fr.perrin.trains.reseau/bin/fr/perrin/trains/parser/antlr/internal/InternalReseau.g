@@ -341,9 +341,9 @@ ruleMultiplication returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMultiplicationAccess().getRightMultiplicationParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getMultiplicationAccess().getRightPuissanceParserRuleCall_1_1_0());
 					}
-					lv_right_5_0=ruleMultiplication
+					lv_right_5_0=rulePuissance
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMultiplicationRule());
@@ -352,7 +352,7 @@ ruleMultiplication returns [EObject current=null]
 							$current,
 							"right",
 							lv_right_5_0,
-							"fr.perrin.trains.Reseau.Multiplication");
+							"fr.perrin.trains.Reseau.Puissance");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -591,13 +591,13 @@ rulePrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryExpressionAccess().getNordAction_4_0(),
+						grammarAccess.getPrimaryExpressionAccess().getDernierAction_4_0(),
 						$current);
 				}
 			)
-			otherlv_14='nord'
+			otherlv_14='~'
 			{
-				newLeafNode(otherlv_14, grammarAccess.getPrimaryExpressionAccess().getNordKeyword_4_1());
+				newLeafNode(otherlv_14, grammarAccess.getPrimaryExpressionAccess().getTildeKeyword_4_1());
 			}
 		)
 		    |
@@ -605,13 +605,13 @@ rulePrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryExpressionAccess().getSudAction_5_0(),
+						grammarAccess.getPrimaryExpressionAccess().getNordAction_5_0(),
 						$current);
 				}
 			)
-			otherlv_16='sud'
+			otherlv_16='nord'
 			{
-				newLeafNode(otherlv_16, grammarAccess.getPrimaryExpressionAccess().getSudKeyword_5_1());
+				newLeafNode(otherlv_16, grammarAccess.getPrimaryExpressionAccess().getNordKeyword_5_1());
 			}
 		)
 		    |
@@ -619,13 +619,13 @@ rulePrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryExpressionAccess().getEstAction_6_0(),
+						grammarAccess.getPrimaryExpressionAccess().getSudAction_6_0(),
 						$current);
 				}
 			)
-			otherlv_18='est'
+			otherlv_18='sud'
 			{
-				newLeafNode(otherlv_18, grammarAccess.getPrimaryExpressionAccess().getEstKeyword_6_1());
+				newLeafNode(otherlv_18, grammarAccess.getPrimaryExpressionAccess().getSudKeyword_6_1());
 			}
 		)
 		    |
@@ -633,13 +633,13 @@ rulePrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryExpressionAccess().getOuestAction_7_0(),
+						grammarAccess.getPrimaryExpressionAccess().getEstAction_7_0(),
 						$current);
 				}
 			)
-			otherlv_20='ouest'
+			otherlv_20='est'
 			{
-				newLeafNode(otherlv_20, grammarAccess.getPrimaryExpressionAccess().getOuestKeyword_7_1());
+				newLeafNode(otherlv_20, grammarAccess.getPrimaryExpressionAccess().getEstKeyword_7_1());
 			}
 		)
 		    |
@@ -647,13 +647,13 @@ rulePrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryExpressionAccess().getPiAction_8_0(),
+						grammarAccess.getPrimaryExpressionAccess().getOuestAction_8_0(),
 						$current);
 				}
 			)
-			otherlv_22='pi'
+			otherlv_22='ouest'
 			{
-				newLeafNode(otherlv_22, grammarAccess.getPrimaryExpressionAccess().getPiKeyword_8_1());
+				newLeafNode(otherlv_22, grammarAccess.getPrimaryExpressionAccess().getOuestKeyword_8_1());
 			}
 		)
 		    |
@@ -661,13 +661,13 @@ rulePrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryExpressionAccess().getEulerAction_9_0(),
+						grammarAccess.getPrimaryExpressionAccess().getPiAction_9_0(),
 						$current);
 				}
 			)
-			otherlv_24='e'
+			otherlv_24='pi'
 			{
-				newLeafNode(otherlv_24, grammarAccess.getPrimaryExpressionAccess().getEKeyword_9_1());
+				newLeafNode(otherlv_24, grammarAccess.getPrimaryExpressionAccess().getPiKeyword_9_1());
 			}
 		)
 		    |
@@ -675,13 +675,13 @@ rulePrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryExpressionAccess().getIAction_10_0(),
+						grammarAccess.getPrimaryExpressionAccess().getEulerAction_10_0(),
 						$current);
 				}
 			)
-			otherlv_26='i'
+			otherlv_26='e'
 			{
-				newLeafNode(otherlv_26, grammarAccess.getPrimaryExpressionAccess().getIKeyword_10_1());
+				newLeafNode(otherlv_26, grammarAccess.getPrimaryExpressionAccess().getEKeyword_10_1());
 			}
 		)
 		    |
@@ -689,40 +689,13 @@ rulePrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryExpressionAccess().getXAction_11_0(),
+						grammarAccess.getPrimaryExpressionAccess().getIAction_11_0(),
 						$current);
 				}
 			)
-			otherlv_28='x'
+			otherlv_28='i'
 			{
-				newLeafNode(otherlv_28, grammarAccess.getPrimaryExpressionAccess().getXKeyword_11_1());
-			}
-			otherlv_29='('
-			{
-				newLeafNode(otherlv_29, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_11_2());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_11_3_0());
-					}
-					lv_value_30_0=rulePoint
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
-						}
-						set(
-							$current,
-							"value",
-							lv_value_30_0,
-							"fr.perrin.trains.Reseau.Point");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			otherlv_31=')'
-			{
-				newLeafNode(otherlv_31, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_11_4());
+				newLeafNode(otherlv_28, grammarAccess.getPrimaryExpressionAccess().getIKeyword_11_1());
 			}
 		)
 		    |
@@ -730,24 +703,24 @@ rulePrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryExpressionAccess().getYAction_12_0(),
+						grammarAccess.getPrimaryExpressionAccess().getXAction_12_0(),
 						$current);
 				}
 			)
-			otherlv_33='y'
+			otherlv_30='x'
 			{
-				newLeafNode(otherlv_33, grammarAccess.getPrimaryExpressionAccess().getYKeyword_12_1());
+				newLeafNode(otherlv_30, grammarAccess.getPrimaryExpressionAccess().getXKeyword_12_1());
 			}
-			otherlv_34='('
+			otherlv_31='('
 			{
-				newLeafNode(otherlv_34, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_12_2());
+				newLeafNode(otherlv_31, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_12_2());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_12_3_0());
 					}
-					lv_value_35_0=rulePoint
+					lv_value_32_0=rulePoint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
@@ -755,15 +728,15 @@ rulePrimaryExpression returns [EObject current=null]
 						set(
 							$current,
 							"value",
-							lv_value_35_0,
+							lv_value_32_0,
 							"fr.perrin.trains.Reseau.Point");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_36=')'
+			otherlv_33=')'
 			{
-				newLeafNode(otherlv_36, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_12_4());
+				newLeafNode(otherlv_33, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_12_4());
 			}
 		)
 		    |
@@ -771,24 +744,24 @@ rulePrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryExpressionAccess().getLongueurAction_13_0(),
+						grammarAccess.getPrimaryExpressionAccess().getYAction_13_0(),
 						$current);
 				}
 			)
-			otherlv_38='longueur'
+			otherlv_35='y'
 			{
-				newLeafNode(otherlv_38, grammarAccess.getPrimaryExpressionAccess().getLongueurKeyword_13_1());
+				newLeafNode(otherlv_35, grammarAccess.getPrimaryExpressionAccess().getYKeyword_13_1());
 			}
-			otherlv_39='('
+			otherlv_36='('
 			{
-				newLeafNode(otherlv_39, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_13_2());
+				newLeafNode(otherlv_36, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_13_2());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_13_3_0());
 					}
-					lv_value_40_0=rulePoint
+					lv_value_37_0=rulePoint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
@@ -796,15 +769,15 @@ rulePrimaryExpression returns [EObject current=null]
 						set(
 							$current,
 							"value",
-							lv_value_40_0,
+							lv_value_37_0,
 							"fr.perrin.trains.Reseau.Point");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_41=')'
+			otherlv_38=')'
 			{
-				newLeafNode(otherlv_41, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_13_4());
+				newLeafNode(otherlv_38, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_13_4());
 			}
 		)
 		    |
@@ -812,24 +785,24 @@ rulePrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryExpressionAccess().getAngleAction_14_0(),
+						grammarAccess.getPrimaryExpressionAccess().getLongueurAction_14_0(),
 						$current);
 				}
 			)
-			otherlv_43='angle'
+			otherlv_40='longueur'
 			{
-				newLeafNode(otherlv_43, grammarAccess.getPrimaryExpressionAccess().getAngleKeyword_14_1());
+				newLeafNode(otherlv_40, grammarAccess.getPrimaryExpressionAccess().getLongueurKeyword_14_1());
 			}
-			otherlv_44='('
+			otherlv_41='('
 			{
-				newLeafNode(otherlv_44, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_14_2());
+				newLeafNode(otherlv_41, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_14_2());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_14_3_0());
 					}
-					lv_value_45_0=rulePoint
+					lv_value_42_0=rulePoint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
@@ -837,15 +810,15 @@ rulePrimaryExpression returns [EObject current=null]
 						set(
 							$current,
 							"value",
-							lv_value_45_0,
+							lv_value_42_0,
 							"fr.perrin.trains.Reseau.Point");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_46=')'
+			otherlv_43=')'
 			{
-				newLeafNode(otherlv_46, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_14_4());
+				newLeafNode(otherlv_43, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_14_4());
 			}
 		)
 		    |
@@ -853,24 +826,24 @@ rulePrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryExpressionAccess().getArgumentAction_15_0(),
+						grammarAccess.getPrimaryExpressionAccess().getAngleAction_15_0(),
 						$current);
 				}
 			)
-			otherlv_48='argument'
+			otherlv_45='angle'
 			{
-				newLeafNode(otherlv_48, grammarAccess.getPrimaryExpressionAccess().getArgumentKeyword_15_1());
+				newLeafNode(otherlv_45, grammarAccess.getPrimaryExpressionAccess().getAngleKeyword_15_1());
 			}
-			otherlv_49='('
+			otherlv_46='('
 			{
-				newLeafNode(otherlv_49, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_15_2());
+				newLeafNode(otherlv_46, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_15_2());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_15_3_0());
 					}
-					lv_value_50_0=rulePoint
+					lv_value_47_0=rulePoint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
@@ -878,17 +851,284 @@ rulePrimaryExpression returns [EObject current=null]
 						set(
 							$current,
 							"value",
-							lv_value_50_0,
+							lv_value_47_0,
 							"fr.perrin.trains.Reseau.Point");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_51=')'
+			otherlv_48=')'
 			{
-				newLeafNode(otherlv_51, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_15_4());
+				newLeafNode(otherlv_48, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_15_4());
 			}
 		)
+		    |
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getPrimaryExpressionAccess().getArgumentAction_16_0(),
+						$current);
+				}
+			)
+			otherlv_50='argument'
+			{
+				newLeafNode(otherlv_50, grammarAccess.getPrimaryExpressionAccess().getArgumentKeyword_16_1());
+			}
+			otherlv_51='('
+			{
+				newLeafNode(otherlv_51, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_16_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getValuePointParserRuleCall_16_3_0());
+					}
+					lv_value_52_0=rulePoint
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
+						}
+						set(
+							$current,
+							"value",
+							lv_value_52_0,
+							"fr.perrin.trains.Reseau.Point");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_53=')'
+			{
+				newLeafNode(otherlv_53, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_16_4());
+			}
+		)
+		    |
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getPrimaryExpressionAccess().getIntersectionAction_17_0(),
+						$current);
+				}
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getL1LigneParserRuleCall_17_1_0());
+					}
+					lv_l1_55_0=ruleLigne
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
+						}
+						set(
+							$current,
+							"l1",
+							lv_l1_55_0,
+							"fr.perrin.trains.Reseau.Ligne");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_56='inter'
+			{
+				newLeafNode(otherlv_56, grammarAccess.getPrimaryExpressionAccess().getInterKeyword_17_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getL2LigneParserRuleCall_17_3_0());
+					}
+					lv_l2_57_0=ruleLigne
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
+						}
+						set(
+							$current,
+							"l2",
+							lv_l2_57_0,
+							"fr.perrin.trains.Reseau.Ligne");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleLigne
+entryRuleLigne returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLigneRule()); }
+	iv_ruleLigne=ruleLigne
+	{ $current=$iv_ruleLigne.current; }
+	EOF;
+
+// Rule Ligne
+ruleLigne returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getLigneAccess().getLigne1ParserRuleCall_0());
+		}
+		this_Ligne1_0=ruleLigne1
+		{
+			$current = $this_Ligne1_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getLigneAccess().getLigne2ParserRuleCall_1());
+		}
+		this_Ligne2_1=ruleLigne2
+		{
+			$current = $this_Ligne2_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleLigne1
+entryRuleLigne1 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLigne1Rule()); }
+	iv_ruleLigne1=ruleLigne1
+	{ $current=$iv_ruleLigne1.current; }
+	EOF;
+
+// Rule Ligne1
+ruleLigne1 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='['
+		{
+			newLeafNode(otherlv_0, grammarAccess.getLigne1Access().getLeftSquareBracketKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLigne1Access().getP1PointParserRuleCall_1_0());
+				}
+				lv_p1_1_0=rulePoint
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLigne1Rule());
+					}
+					set(
+						$current,
+						"p1",
+						lv_p1_1_0,
+						"fr.perrin.trains.Reseau.Point");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2=','
+		{
+			newLeafNode(otherlv_2, grammarAccess.getLigne1Access().getCommaKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLigne1Access().getP2PointParserRuleCall_3_0());
+				}
+				lv_p2_3_0=rulePoint
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLigne1Rule());
+					}
+					set(
+						$current,
+						"p2",
+						lv_p2_3_0,
+						"fr.perrin.trains.Reseau.Point");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4=']'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getLigne1Access().getRightSquareBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleLigne2
+entryRuleLigne2 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLigne2Rule()); }
+	iv_ruleLigne2=ruleLigne2
+	{ $current=$iv_ruleLigne2.current; }
+	EOF;
+
+// Rule Ligne2
+ruleLigne2 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='<'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getLigne2Access().getLessThanSignKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLigne2Access().getP1PointParserRuleCall_1_0());
+				}
+				lv_p1_1_0=rulePoint
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLigne2Rule());
+					}
+					set(
+						$current,
+						"p1",
+						lv_p1_1_0,
+						"fr.perrin.trains.Reseau.Point");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2=','
+		{
+			newLeafNode(otherlv_2, grammarAccess.getLigne2Access().getCommaKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLigne2Access().getP2PointParserRuleCall_3_0());
+				}
+				lv_p2_3_0=rulePoint
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLigne2Rule());
+					}
+					set(
+						$current,
+						"p2",
+						lv_p2_3_0,
+						"fr.perrin.trains.Reseau.Point");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4='>'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getLigne2Access().getGreaterThanSignKeyword_4());
+		}
 	)
 ;
 

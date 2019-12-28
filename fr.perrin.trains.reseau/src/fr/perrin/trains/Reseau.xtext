@@ -23,18 +23,18 @@ Addition returns Point:
 Multiplication returns Point:
 	Puissance (
 		({Multi.left=current} '*' | {Div.left=current} '/') 
-		right=Multiplication
-	)*;
+		right=Puissance
+	)*
+;
 
 Puissance returns Point: PrimaryExpression ({Degree.left=current} '°' | ({Pow.left=current} '^' right = PrimaryExpression))?;
-
-//Degre returns Point: PrimaryExpression ({Degree.left=current} '°')?;
 
 PrimaryExpression returns Point: 
 	'(' Point ({CoordonneeLiteral.left=current} ',' right=Point)? ')'
 	| {NumberLiteral} value=NUMBER
 	| {Negative} '-' value=PrimaryExpression
 	| {Declared} Decl=[DeclarationPoint]
+	| {Dernier} '~'
 	| {Nord} 'nord'
 	| {Sud} 'sud'
 	| {Est} 'est'
@@ -47,7 +47,12 @@ PrimaryExpression returns Point:
 	| {Longueur} 'longueur' '(' value=Point ')'
 	| {Angle} 'angle' '(' value=Point ')'
 	| {Argument} 'argument' '(' value=Point ')'
+	| {Intersection} l1=Ligne 'inter' l2=Ligne
 ;
+
+Ligne :  Ligne1 | Ligne2;
+Ligne1 :  '[' p1=Point ',' p2=Point ']';
+Ligne2 :  '<' p1=Point ',' p2=Point '>';
 
 terminal NUMBER returns ecore::EDouble: ('0'..'9')+ ('.' ('0'..'9')+)?;
 @Override terminal INT returns ecore::EInt: 'this one has been deactivated';

@@ -94,6 +94,29 @@ public class ReseauSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ReseauPackage.LIGNE:
+      {
+        Ligne ligne = (Ligne)theEObject;
+        T result = caseLigne(ligne);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ReseauPackage.LIGNE1:
+      {
+        Ligne1 ligne1 = (Ligne1)theEObject;
+        T result = caseLigne1(ligne1);
+        if (result == null) result = caseLigne(ligne1);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ReseauPackage.LIGNE2:
+      {
+        Ligne2 ligne2 = (Ligne2)theEObject;
+        T result = caseLigne2(ligne2);
+        if (result == null) result = caseLigne(ligne2);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ReseauPackage.SEGMENT:
       {
         Segment segment = (Segment)theEObject;
@@ -202,6 +225,14 @@ public class ReseauSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ReseauPackage.DERNIER:
+      {
+        Dernier dernier = (Dernier)theEObject;
+        T result = caseDernier(dernier);
+        if (result == null) result = casePoint(dernier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ReseauPackage.NORD:
       {
         Nord nord = (Nord)theEObject;
@@ -298,6 +329,14 @@ public class ReseauSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ReseauPackage.INTERSECTION:
+      {
+        Intersection intersection = (Intersection)theEObject;
+        T result = caseIntersection(intersection);
+        if (result == null) result = casePoint(intersection);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -346,6 +385,54 @@ public class ReseauSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePoint(Point object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ligne</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ligne</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLigne(Ligne object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ligne1</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ligne1</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLigne1(Ligne1 object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ligne2</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ligne2</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLigne2(Ligne2 object)
   {
     return null;
   }
@@ -575,6 +662,22 @@ public class ReseauSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Dernier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Dernier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDernier(Dernier object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Nord</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -762,6 +865,22 @@ public class ReseauSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseArgument(Argument object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Intersection</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Intersection</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntersection(Intersection object)
   {
     return null;
   }

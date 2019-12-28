@@ -51,6 +51,33 @@ public interface ReseauFactory extends EFactory
   Point createPoint();
 
   /**
+   * Returns a new object of class '<em>Ligne</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ligne</em>'.
+   * @generated
+   */
+  Ligne createLigne();
+
+  /**
+   * Returns a new object of class '<em>Ligne1</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ligne1</em>'.
+   * @generated
+   */
+  Ligne1 createLigne1();
+
+  /**
+   * Returns a new object of class '<em>Ligne2</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ligne2</em>'.
+   * @generated
+   */
+  Ligne2 createLigne2();
+
+  /**
    * Returns a new object of class '<em>Segment</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -177,6 +204,15 @@ public interface ReseauFactory extends EFactory
   Declared createDeclared();
 
   /**
+   * Returns a new object of class '<em>Dernier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dernier</em>'.
+   * @generated
+   */
+  Dernier createDernier();
+
+  /**
    * Returns a new object of class '<em>Nord</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -283,6 +319,15 @@ public interface ReseauFactory extends EFactory
    * @generated
    */
   Argument createArgument();
+
+  /**
+   * Returns a new object of class '<em>Intersection</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Intersection</em>'.
+   * @generated
+   */
+  Intersection createIntersection();
 
   /**
    * Returns the package supported by this factory.

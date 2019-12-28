@@ -33,6 +33,10 @@ public abstract class ApplicationTrain extends JPanel implements ActionListener 
 
 	
 	public Node addNode(Complex c, String name) {
+		if(c.x < xmin) xmin = c.x;
+		if(c.x > xmax) xmax = c.x;
+		if(c.y < ymin) ymin = c.y;
+		if(c.y > ymax) ymax = c.y;
 		for(Node n : nodes) {
 			if(n.position.equals(c)) {
 				return n;
@@ -83,65 +87,97 @@ public abstract class ApplicationTrain extends JPanel implements ActionListener 
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, width, height);
 		g.setColor(Color.BLACK);
+		Color color = new Color(125,150,255);
+		for(Node node : nodes) drawPoint(g, node);
 		for(GraphSegment segment : segments) {
-			Color color;
-			color = new Color(125,150,255);
-			for(Edge path : segment.getEdges()) {
-				for(int i = 0; i < path.nodes.size() - 1; i++) {
-					g.setColor(color);
-					drawSegment(g,xToPixel(path.nodes.get(i)), yToPixel(path.nodes.get(i)), xToPixel(path.nodes.get(i+1)), yToPixel(path.nodes.get(i+1)));
-				}
-			}
+			drawSegment(g, segment, color);
 		}
 		for(GraphSegment segment : segments) {
 			for(Edge path : segment.getEdges()) {
 				for(int i = 0; i < path.nodes.size() - 1; i++) {
-					drawDirection(g,xToPixel(path.nodes.get(i)), yToPixel(path.nodes.get(i)), xToPixel(path.nodes.get(i+1)), yToPixel(path.nodes.get(i+1)));
+					drawDirection(g,xToPixel(path.nodes.get(i)), yToPixel(path.nodes.get(i)), xToPixel(path.nodes.get(i+1)), yToPixel(path.nodes.get(i+1)), color);
 				}
 			}
-		}
-		for(Node node : nodes) {
-			drawNode(g, node, xToPixel(node.position), yToPixel(node.position));
+			Complex c = segment.getBarycenter();
+			g.setColor(color);//new Color(30,50,150));
+			g.drawString(segment.getName(), xToPixel(c)-10, yToPixel(c)-5);
 		}
 	}
 
-	private void drawSegment(Graphics g, int x1, int y1, int x2, int y2) {
+	double largSegment = 2;
+
+	private void drawSegment(Graphics g, GraphSegment segment, Color color) {
+		for(Edge edge : segment.getEdges()) {
+			for(int i = 0; i < edge.nodes.size() - 1; i++) {
+				drawEdgePart(g,xToPixel(edge.nodes.get(i)), yToPixel(edge.nodes.get(i)), xToPixel(edge.nodes.get(i+1)), yToPixel(edge.nodes.get(i+1)), color);
+			}
+			drawNode(g,edge.start, color);
+			drawNode(g,edge.end, color);
+		}
+	}
+
+	private void drawEdgePart(Graphics g, int x1, int y1, int x2, int y2, Color c) {
 		double angle = Math.atan2(x2 - x1, y2 - y1);
 		double sin = Math.sin(angle);
 		double cos = Math.cos(angle);
-		double larg = 3;
-		int x [] = {(int)(x1 + larg*cos), (int)(x1 - larg*cos), (int)(x2 - larg*cos), (int)(x2 + larg*cos)};
-		int y [] = {(int)(y1 - larg*sin), (int)(y1 + larg*sin), (int)(y2 + larg*sin), (int)(y2 - larg*sin)};
+		int largPt = (int)(largSegment);
+		int x [] = {(int)(x1 + largSegment*cos), (int)(x1 - largSegment*cos), (int)(x2 - largSegment*cos), (int)(x2 + largSegment*cos)};
+		int y [] = {(int)(y1 - largSegment*sin), (int)(y1 + largSegment*sin), (int)(y2 + largSegment*sin), (int)(y2 - largSegment*sin)};
+		g.setColor(c);
 		g.fillPolygon(x,y,4);
 		g.setColor(Color.BLACK);
 		g.drawLine(x[0],y[0],x[3],y[3]);
 		g.drawLine(x[1],y[1],x[2],y[2]);
-		g.setColor(new Color(200,200,200));
-		g.fillOval(x1-6, y1-6, 12, 12);
-		g.fillOval(x2-6, y2-6, 12, 12);
+		g.setColor(c);
+		g.fillOval(x1-largPt-1, y1-largPt, 2*largPt, 2*largPt);
+		g.fillOval(x2-largPt, y2-largPt, 2*largPt, 2*largPt);
 		g.setColor(Color.BLACK);
-		g.drawOval(x1-6, y1-6, 12, 12);
-		g.drawOval(x2-6, y2-6, 12, 12);
+		g.drawOval(x1-largPt, y1-largPt, 2*largPt, 2*largPt);
+		g.drawOval(x2-largPt, y2-largPt, 2*largPt, 2*largPt);
 	}
 	
-	private void drawDirection(Graphics g, int x1, int y1, int x2, int y2) {
-		double angle = Math.atan2(x2 - x1, y2 - y1);
-		int xC = (x1 + 2*x2)/3;
-		int yC = (y1 + 2*y2)/3;
-		int x [] = {xC, (int)(xC - 8*Math.sin(angle + 0.5)), (int)(xC - 8*Math.sin(angle - 0.5))};
-		int y [] = {yC, (int)(yC - 8*Math.cos(angle + 0.5)), (int)(yC - 8*Math.cos(angle - 0.5))};
-		g.setColor(Color.BLACK);
+	private void drawDirection(Graphics g, int x1, int y1, int x2, int y2, Color c) {
+		double angle = Math.atan2(y2 - y1, x2 - x1);
+		double angle2 = 0.4;
+		double long2 = 15;
+		int xC = (x1 + 3*x2)/4;
+		int yC = (y1 + 3*y2)/4;
+		int x [] = {xC, (int)(xC - long2*Math.cos(angle+angle2)), (int)(xC - long2*Math.cos(angle-angle2))};
+		int y [] = {yC, (int)(yC - long2*Math.sin(angle+angle2)), (int)(yC - long2*Math.sin(angle-angle2))};
+		g.setColor(c);
 		g.fillPolygon(x,y,3);
+		g.setColor(Color.BLACK);
+		g.drawPolygon(x,y,3);
 	}
 
-	private void drawNode(Graphics g, Node node, int x, int y) {
-		g.setColor(new Color(200,200,200));
+	private void drawNode(Graphics g, Node node, Color color) {
+		int x = xToPixel(node.position);
+		int y = yToPixel(node.position);
+		int lg = 5;
+		g.setColor(color);
+		g.fillOval(x-lg, y-lg, 2*lg, 2*lg);
+		g.setColor(Color.BLACK);
+		g.drawOval(x-lg, y-lg, 2*lg, 2*lg);
+		g.drawString(node.name, x+4, y-4);
+	}
+
+	private void drawPoint(Graphics g, Node node) {
+		int x = xToPixel(node.position);
+		int y = yToPixel(node.position);
+		if(node.edgesIn.isEmpty() && node.edgesOut.isEmpty()) {
+			int lg = 4;
+			g.setColor(new Color(150,150,150));
+			g.drawLine(x-lg,y-lg,x+lg,y+lg);
+			g.drawLine(x-lg,y+lg,x+lg,y-lg);
+			g.drawString(node.name, x+4, y-4);
+		}
+		/*
 		g.fillOval(x-8, y-8, 16, 16);
 		g.setColor(Color.BLACK);
 		g.drawOval(x-8, y-8, 16, 16);
-		g.drawString(node.name, x, y);
+		*/
 	}
-
+	
 	private int xToPixel(Complex c) {
 		return (int)(padding + (c.x - xmin) * (width - 2*padding) / (xmax - xmin));
 	}

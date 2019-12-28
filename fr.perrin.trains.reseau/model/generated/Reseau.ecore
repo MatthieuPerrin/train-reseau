@@ -12,6 +12,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="xy" eType="#//Point" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Point"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Ligne">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="p1" eType="#//Point" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="p2" eType="#//Point" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ligne1" eSuperTypes="#//Ligne"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Ligne2" eSuperTypes="#//Ligne"/>
   <eClassifiers xsi:type="ecore:EClass" name="Segment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
@@ -80,6 +86,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Declared" eSuperTypes="#//Point">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Decl" eType="#//DeclarationPoint"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dernier" eSuperTypes="#//Point"/>
   <eClassifiers xsi:type="ecore:EClass" name="Nord" eSuperTypes="#//Point"/>
   <eClassifiers xsi:type="ecore:EClass" name="Sud" eSuperTypes="#//Point"/>
   <eClassifiers xsi:type="ecore:EClass" name="Est" eSuperTypes="#//Point"/>
@@ -106,5 +113,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="Argument" eSuperTypes="#//Point">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Point"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Intersection" eSuperTypes="#//Point">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l1" eType="#//Ligne" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l2" eType="#//Ligne" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

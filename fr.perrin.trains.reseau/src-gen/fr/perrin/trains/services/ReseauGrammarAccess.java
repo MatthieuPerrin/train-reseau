@@ -165,19 +165,19 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cDivLeftAction_1_0_1_0 = (Action)cGroup_1_0_1.eContents().get(0);
 		private final Keyword cSolidusKeyword_1_0_1_1 = (Keyword)cGroup_1_0_1.eContents().get(1);
 		private final Assignment cRightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cRightMultiplicationParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
+		private final RuleCall cRightPuissanceParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
 		//Multiplication Point:
-		//	Puissance (({Multi.left=current} '*' | {Div.left=current} '/') right=Multiplication)*;
+		//	Puissance (({Multi.left=current} '*' | {Div.left=current} '/') right=Puissance)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Puissance (({Multi.left=current} '*' | {Div.left=current} '/') right=Multiplication)*
+		//Puissance (({Multi.left=current} '*' | {Div.left=current} '/') right=Puissance)*
 		public Group getGroup() { return cGroup; }
 		
 		//Puissance
 		public RuleCall getPuissanceParserRuleCall_0() { return cPuissanceParserRuleCall_0; }
 		
-		//(({Multi.left=current} '*' | {Div.left=current} '/') right=Multiplication)*
+		//(({Multi.left=current} '*' | {Div.left=current} '/') right=Puissance)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//({Multi.left=current} '*' | {Div.left=current} '/')
@@ -201,11 +201,11 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 		//'/'
 		public Keyword getSolidusKeyword_1_0_1_1() { return cSolidusKeyword_1_0_1_1; }
 		
-		//right=Multiplication
+		//right=Puissance
 		public Assignment getRightAssignment_1_1() { return cRightAssignment_1_1; }
 		
-		//Multiplication
-		public RuleCall getRightMultiplicationParserRuleCall_1_1_0() { return cRightMultiplicationParserRuleCall_1_1_0; }
+		//Puissance
+		public RuleCall getRightPuissanceParserRuleCall_1_1_0() { return cRightPuissanceParserRuleCall_1_1_0; }
 	}
 	public class PuissanceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.perrin.trains.Reseau.Puissance");
@@ -285,68 +285,78 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cDeclDeclarationPointCrossReference_3_1_0 = (CrossReference)cDeclAssignment_3_1.eContents().get(0);
 		private final RuleCall cDeclDeclarationPointIDTerminalRuleCall_3_1_0_1 = (RuleCall)cDeclDeclarationPointCrossReference_3_1_0.eContents().get(1);
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Action cNordAction_4_0 = (Action)cGroup_4.eContents().get(0);
-		private final Keyword cNordKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Action cDernierAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final Keyword cTildeKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Action cSudAction_5_0 = (Action)cGroup_5.eContents().get(0);
-		private final Keyword cSudKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Action cNordAction_5_0 = (Action)cGroup_5.eContents().get(0);
+		private final Keyword cNordKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Action cEstAction_6_0 = (Action)cGroup_6.eContents().get(0);
-		private final Keyword cEstKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Action cSudAction_6_0 = (Action)cGroup_6.eContents().get(0);
+		private final Keyword cSudKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
 		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
-		private final Action cOuestAction_7_0 = (Action)cGroup_7.eContents().get(0);
-		private final Keyword cOuestKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Action cEstAction_7_0 = (Action)cGroup_7.eContents().get(0);
+		private final Keyword cEstKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
-		private final Action cPiAction_8_0 = (Action)cGroup_8.eContents().get(0);
-		private final Keyword cPiKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Action cOuestAction_8_0 = (Action)cGroup_8.eContents().get(0);
+		private final Keyword cOuestKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
 		private final Group cGroup_9 = (Group)cAlternatives.eContents().get(9);
-		private final Action cEulerAction_9_0 = (Action)cGroup_9.eContents().get(0);
-		private final Keyword cEKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
+		private final Action cPiAction_9_0 = (Action)cGroup_9.eContents().get(0);
+		private final Keyword cPiKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
 		private final Group cGroup_10 = (Group)cAlternatives.eContents().get(10);
-		private final Action cIAction_10_0 = (Action)cGroup_10.eContents().get(0);
-		private final Keyword cIKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
+		private final Action cEulerAction_10_0 = (Action)cGroup_10.eContents().get(0);
+		private final Keyword cEKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
 		private final Group cGroup_11 = (Group)cAlternatives.eContents().get(11);
-		private final Action cXAction_11_0 = (Action)cGroup_11.eContents().get(0);
-		private final Keyword cXKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_11_2 = (Keyword)cGroup_11.eContents().get(2);
-		private final Assignment cValueAssignment_11_3 = (Assignment)cGroup_11.eContents().get(3);
-		private final RuleCall cValuePointParserRuleCall_11_3_0 = (RuleCall)cValueAssignment_11_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_11_4 = (Keyword)cGroup_11.eContents().get(4);
+		private final Action cIAction_11_0 = (Action)cGroup_11.eContents().get(0);
+		private final Keyword cIKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
 		private final Group cGroup_12 = (Group)cAlternatives.eContents().get(12);
-		private final Action cYAction_12_0 = (Action)cGroup_12.eContents().get(0);
-		private final Keyword cYKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
+		private final Action cXAction_12_0 = (Action)cGroup_12.eContents().get(0);
+		private final Keyword cXKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_12_2 = (Keyword)cGroup_12.eContents().get(2);
 		private final Assignment cValueAssignment_12_3 = (Assignment)cGroup_12.eContents().get(3);
 		private final RuleCall cValuePointParserRuleCall_12_3_0 = (RuleCall)cValueAssignment_12_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_12_4 = (Keyword)cGroup_12.eContents().get(4);
 		private final Group cGroup_13 = (Group)cAlternatives.eContents().get(13);
-		private final Action cLongueurAction_13_0 = (Action)cGroup_13.eContents().get(0);
-		private final Keyword cLongueurKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
+		private final Action cYAction_13_0 = (Action)cGroup_13.eContents().get(0);
+		private final Keyword cYKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_13_2 = (Keyword)cGroup_13.eContents().get(2);
 		private final Assignment cValueAssignment_13_3 = (Assignment)cGroup_13.eContents().get(3);
 		private final RuleCall cValuePointParserRuleCall_13_3_0 = (RuleCall)cValueAssignment_13_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_13_4 = (Keyword)cGroup_13.eContents().get(4);
 		private final Group cGroup_14 = (Group)cAlternatives.eContents().get(14);
-		private final Action cAngleAction_14_0 = (Action)cGroup_14.eContents().get(0);
-		private final Keyword cAngleKeyword_14_1 = (Keyword)cGroup_14.eContents().get(1);
+		private final Action cLongueurAction_14_0 = (Action)cGroup_14.eContents().get(0);
+		private final Keyword cLongueurKeyword_14_1 = (Keyword)cGroup_14.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_14_2 = (Keyword)cGroup_14.eContents().get(2);
 		private final Assignment cValueAssignment_14_3 = (Assignment)cGroup_14.eContents().get(3);
 		private final RuleCall cValuePointParserRuleCall_14_3_0 = (RuleCall)cValueAssignment_14_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_14_4 = (Keyword)cGroup_14.eContents().get(4);
 		private final Group cGroup_15 = (Group)cAlternatives.eContents().get(15);
-		private final Action cArgumentAction_15_0 = (Action)cGroup_15.eContents().get(0);
-		private final Keyword cArgumentKeyword_15_1 = (Keyword)cGroup_15.eContents().get(1);
+		private final Action cAngleAction_15_0 = (Action)cGroup_15.eContents().get(0);
+		private final Keyword cAngleKeyword_15_1 = (Keyword)cGroup_15.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_15_2 = (Keyword)cGroup_15.eContents().get(2);
 		private final Assignment cValueAssignment_15_3 = (Assignment)cGroup_15.eContents().get(3);
 		private final RuleCall cValuePointParserRuleCall_15_3_0 = (RuleCall)cValueAssignment_15_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_15_4 = (Keyword)cGroup_15.eContents().get(4);
+		private final Group cGroup_16 = (Group)cAlternatives.eContents().get(16);
+		private final Action cArgumentAction_16_0 = (Action)cGroup_16.eContents().get(0);
+		private final Keyword cArgumentKeyword_16_1 = (Keyword)cGroup_16.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_16_2 = (Keyword)cGroup_16.eContents().get(2);
+		private final Assignment cValueAssignment_16_3 = (Assignment)cGroup_16.eContents().get(3);
+		private final RuleCall cValuePointParserRuleCall_16_3_0 = (RuleCall)cValueAssignment_16_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_16_4 = (Keyword)cGroup_16.eContents().get(4);
+		private final Group cGroup_17 = (Group)cAlternatives.eContents().get(17);
+		private final Action cIntersectionAction_17_0 = (Action)cGroup_17.eContents().get(0);
+		private final Assignment cL1Assignment_17_1 = (Assignment)cGroup_17.eContents().get(1);
+		private final RuleCall cL1LigneParserRuleCall_17_1_0 = (RuleCall)cL1Assignment_17_1.eContents().get(0);
+		private final Keyword cInterKeyword_17_2 = (Keyword)cGroup_17.eContents().get(2);
+		private final Assignment cL2Assignment_17_3 = (Assignment)cGroup_17.eContents().get(3);
+		private final RuleCall cL2LigneParserRuleCall_17_3_0 = (RuleCall)cL2Assignment_17_3.eContents().get(0);
 		
-		////Degre returns Point: PrimaryExpression ({Degree.left=current} '°')?;
 		//PrimaryExpression Point:
 		//	'(' Point ({CoordonneeLiteral.left=current} ',' right=Point)? ')'
 		//	| {NumberLiteral} value=NUMBER
 		//	| {Negative} '-' value=PrimaryExpression
-		//	| {Declared} Decl=[DeclarationPoint] | {Nord} 'nord'
+		//	| {Declared} Decl=[DeclarationPoint] | {Dernier} '~'
+		//	| {Nord} 'nord'
 		//	| {Sud} 'sud'
 		//	| {Est} 'est'
 		//	| {Ouest} 'ouest'
@@ -357,13 +367,15 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 		//	| {Y} 'y' '(' value=Point ')'
 		//	| {Longueur} 'longueur' '(' value=Point ')'
 		//	| {Angle} 'angle' '(' value=Point ')'
-		//	| {Argument} 'argument' '(' value=Point ')';
+		//	| {Argument} 'argument' '(' value=Point ')'
+		//	| {Intersection} l1=Ligne 'inter' l2=Ligne;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'(' Point ({CoordonneeLiteral.left=current} ',' right=Point)? ')' | {NumberLiteral} value=NUMBER | {Negative} '-'
-		//value=PrimaryExpression | {Declared} Decl=[DeclarationPoint] | {Nord} 'nord' | {Sud} 'sud' | {Est} 'est' | {Ouest}
-		//'ouest' | {Pi} 'pi' | {Euler} 'e' | {I} 'i' | {X} 'x' '(' value=Point ')' | {Y} 'y' '(' value=Point ')' | {Longueur}
-		//'longueur' '(' value=Point ')' | {Angle} 'angle' '(' value=Point ')' | {Argument} 'argument' '(' value=Point ')'
+		//value=PrimaryExpression | {Declared} Decl=[DeclarationPoint] | {Dernier} '~' | {Nord} 'nord' | {Sud} 'sud' | {Est}
+		//'est' | {Ouest} 'ouest' | {Pi} 'pi' | {Euler} 'e' | {I} 'i' | {X} 'x' '(' value=Point ')' | {Y} 'y' '(' value=Point ')'
+		//| {Longueur} 'longueur' '(' value=Point ')' | {Angle} 'angle' '(' value=Point ')' | {Argument} 'argument' '('
+		//value=Point ')' | {Intersection} l1=Ligne 'inter' l2=Ligne
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'(' Point ({CoordonneeLiteral.left=current} ',' right=Point)? ')'
@@ -435,98 +447,86 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getDeclDeclarationPointIDTerminalRuleCall_3_1_0_1() { return cDeclDeclarationPointIDTerminalRuleCall_3_1_0_1; }
 		
-		//{Nord} 'nord'
+		//{Dernier} '~'
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//{Nord}
-		public Action getNordAction_4_0() { return cNordAction_4_0; }
+		//{Dernier}
+		public Action getDernierAction_4_0() { return cDernierAction_4_0; }
 		
-		//'nord'
-		public Keyword getNordKeyword_4_1() { return cNordKeyword_4_1; }
+		//'~'
+		public Keyword getTildeKeyword_4_1() { return cTildeKeyword_4_1; }
 		
-		//{Sud} 'sud'
+		//{Nord} 'nord'
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//{Sud}
-		public Action getSudAction_5_0() { return cSudAction_5_0; }
+		//{Nord}
+		public Action getNordAction_5_0() { return cNordAction_5_0; }
 		
-		//'sud'
-		public Keyword getSudKeyword_5_1() { return cSudKeyword_5_1; }
+		//'nord'
+		public Keyword getNordKeyword_5_1() { return cNordKeyword_5_1; }
 		
-		//{Est} 'est'
+		//{Sud} 'sud'
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//{Est}
-		public Action getEstAction_6_0() { return cEstAction_6_0; }
+		//{Sud}
+		public Action getSudAction_6_0() { return cSudAction_6_0; }
 		
-		//'est'
-		public Keyword getEstKeyword_6_1() { return cEstKeyword_6_1; }
+		//'sud'
+		public Keyword getSudKeyword_6_1() { return cSudKeyword_6_1; }
 		
-		//{Ouest} 'ouest'
+		//{Est} 'est'
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//{Ouest}
-		public Action getOuestAction_7_0() { return cOuestAction_7_0; }
+		//{Est}
+		public Action getEstAction_7_0() { return cEstAction_7_0; }
 		
-		//'ouest'
-		public Keyword getOuestKeyword_7_1() { return cOuestKeyword_7_1; }
+		//'est'
+		public Keyword getEstKeyword_7_1() { return cEstKeyword_7_1; }
 		
-		//{Pi} 'pi'
+		//{Ouest} 'ouest'
 		public Group getGroup_8() { return cGroup_8; }
 		
-		//{Pi}
-		public Action getPiAction_8_0() { return cPiAction_8_0; }
+		//{Ouest}
+		public Action getOuestAction_8_0() { return cOuestAction_8_0; }
 		
-		//'pi'
-		public Keyword getPiKeyword_8_1() { return cPiKeyword_8_1; }
+		//'ouest'
+		public Keyword getOuestKeyword_8_1() { return cOuestKeyword_8_1; }
 		
-		//{Euler} 'e'
+		//{Pi} 'pi'
 		public Group getGroup_9() { return cGroup_9; }
 		
-		//{Euler}
-		public Action getEulerAction_9_0() { return cEulerAction_9_0; }
+		//{Pi}
+		public Action getPiAction_9_0() { return cPiAction_9_0; }
 		
-		//'e'
-		public Keyword getEKeyword_9_1() { return cEKeyword_9_1; }
+		//'pi'
+		public Keyword getPiKeyword_9_1() { return cPiKeyword_9_1; }
 		
-		//{I} 'i'
+		//{Euler} 'e'
 		public Group getGroup_10() { return cGroup_10; }
 		
-		//{I}
-		public Action getIAction_10_0() { return cIAction_10_0; }
+		//{Euler}
+		public Action getEulerAction_10_0() { return cEulerAction_10_0; }
 		
-		//'i'
-		public Keyword getIKeyword_10_1() { return cIKeyword_10_1; }
+		//'e'
+		public Keyword getEKeyword_10_1() { return cEKeyword_10_1; }
 		
-		//{X} 'x' '(' value=Point ')'
+		//{I} 'i'
 		public Group getGroup_11() { return cGroup_11; }
 		
-		//{X}
-		public Action getXAction_11_0() { return cXAction_11_0; }
+		//{I}
+		public Action getIAction_11_0() { return cIAction_11_0; }
 		
-		//'x'
-		public Keyword getXKeyword_11_1() { return cXKeyword_11_1; }
+		//'i'
+		public Keyword getIKeyword_11_1() { return cIKeyword_11_1; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_11_2() { return cLeftParenthesisKeyword_11_2; }
-		
-		//value=Point
-		public Assignment getValueAssignment_11_3() { return cValueAssignment_11_3; }
-		
-		//Point
-		public RuleCall getValuePointParserRuleCall_11_3_0() { return cValuePointParserRuleCall_11_3_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_11_4() { return cRightParenthesisKeyword_11_4; }
-		
-		//{Y} 'y' '(' value=Point ')'
+		//{X} 'x' '(' value=Point ')'
 		public Group getGroup_12() { return cGroup_12; }
 		
-		//{Y}
-		public Action getYAction_12_0() { return cYAction_12_0; }
+		//{X}
+		public Action getXAction_12_0() { return cXAction_12_0; }
 		
-		//'y'
-		public Keyword getYKeyword_12_1() { return cYKeyword_12_1; }
+		//'x'
+		public Keyword getXKeyword_12_1() { return cXKeyword_12_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_12_2() { return cLeftParenthesisKeyword_12_2; }
@@ -540,14 +540,14 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_12_4() { return cRightParenthesisKeyword_12_4; }
 		
-		//{Longueur} 'longueur' '(' value=Point ')'
+		//{Y} 'y' '(' value=Point ')'
 		public Group getGroup_13() { return cGroup_13; }
 		
-		//{Longueur}
-		public Action getLongueurAction_13_0() { return cLongueurAction_13_0; }
+		//{Y}
+		public Action getYAction_13_0() { return cYAction_13_0; }
 		
-		//'longueur'
-		public Keyword getLongueurKeyword_13_1() { return cLongueurKeyword_13_1; }
+		//'y'
+		public Keyword getYKeyword_13_1() { return cYKeyword_13_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_13_2() { return cLeftParenthesisKeyword_13_2; }
@@ -561,14 +561,14 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_13_4() { return cRightParenthesisKeyword_13_4; }
 		
-		//{Angle} 'angle' '(' value=Point ')'
+		//{Longueur} 'longueur' '(' value=Point ')'
 		public Group getGroup_14() { return cGroup_14; }
 		
-		//{Angle}
-		public Action getAngleAction_14_0() { return cAngleAction_14_0; }
+		//{Longueur}
+		public Action getLongueurAction_14_0() { return cLongueurAction_14_0; }
 		
-		//'angle'
-		public Keyword getAngleKeyword_14_1() { return cAngleKeyword_14_1; }
+		//'longueur'
+		public Keyword getLongueurKeyword_14_1() { return cLongueurKeyword_14_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_14_2() { return cLeftParenthesisKeyword_14_2; }
@@ -582,14 +582,14 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_14_4() { return cRightParenthesisKeyword_14_4; }
 		
-		//{Argument} 'argument' '(' value=Point ')'
+		//{Angle} 'angle' '(' value=Point ')'
 		public Group getGroup_15() { return cGroup_15; }
 		
-		//{Argument}
-		public Action getArgumentAction_15_0() { return cArgumentAction_15_0; }
+		//{Angle}
+		public Action getAngleAction_15_0() { return cAngleAction_15_0; }
 		
-		//'argument'
-		public Keyword getArgumentKeyword_15_1() { return cArgumentKeyword_15_1; }
+		//'angle'
+		public Keyword getAngleKeyword_15_1() { return cAngleKeyword_15_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_15_2() { return cLeftParenthesisKeyword_15_2; }
@@ -602,6 +602,145 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_15_4() { return cRightParenthesisKeyword_15_4; }
+		
+		//{Argument} 'argument' '(' value=Point ')'
+		public Group getGroup_16() { return cGroup_16; }
+		
+		//{Argument}
+		public Action getArgumentAction_16_0() { return cArgumentAction_16_0; }
+		
+		//'argument'
+		public Keyword getArgumentKeyword_16_1() { return cArgumentKeyword_16_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_16_2() { return cLeftParenthesisKeyword_16_2; }
+		
+		//value=Point
+		public Assignment getValueAssignment_16_3() { return cValueAssignment_16_3; }
+		
+		//Point
+		public RuleCall getValuePointParserRuleCall_16_3_0() { return cValuePointParserRuleCall_16_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_16_4() { return cRightParenthesisKeyword_16_4; }
+		
+		//{Intersection} l1=Ligne 'inter' l2=Ligne
+		public Group getGroup_17() { return cGroup_17; }
+		
+		//{Intersection}
+		public Action getIntersectionAction_17_0() { return cIntersectionAction_17_0; }
+		
+		//l1=Ligne
+		public Assignment getL1Assignment_17_1() { return cL1Assignment_17_1; }
+		
+		//Ligne
+		public RuleCall getL1LigneParserRuleCall_17_1_0() { return cL1LigneParserRuleCall_17_1_0; }
+		
+		//'inter'
+		public Keyword getInterKeyword_17_2() { return cInterKeyword_17_2; }
+		
+		//l2=Ligne
+		public Assignment getL2Assignment_17_3() { return cL2Assignment_17_3; }
+		
+		//Ligne
+		public RuleCall getL2LigneParserRuleCall_17_3_0() { return cL2LigneParserRuleCall_17_3_0; }
+	}
+	public class LigneElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.perrin.trains.Reseau.Ligne");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cLigne1ParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLigne2ParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Ligne:
+		//	Ligne1 | Ligne2;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Ligne1 | Ligne2
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Ligne1
+		public RuleCall getLigne1ParserRuleCall_0() { return cLigne1ParserRuleCall_0; }
+		
+		//Ligne2
+		public RuleCall getLigne2ParserRuleCall_1() { return cLigne2ParserRuleCall_1; }
+	}
+	public class Ligne1Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.perrin.trains.Reseau.Ligne1");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cP1Assignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cP1PointParserRuleCall_1_0 = (RuleCall)cP1Assignment_1.eContents().get(0);
+		private final Keyword cCommaKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cP2Assignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cP2PointParserRuleCall_3_0 = (RuleCall)cP2Assignment_3.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Ligne1:
+		//	'[' p1=Point ',' p2=Point ']';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'[' p1=Point ',' p2=Point ']'
+		public Group getGroup() { return cGroup; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
+		
+		//p1=Point
+		public Assignment getP1Assignment_1() { return cP1Assignment_1; }
+		
+		//Point
+		public RuleCall getP1PointParserRuleCall_1_0() { return cP1PointParserRuleCall_1_0; }
+		
+		//','
+		public Keyword getCommaKeyword_2() { return cCommaKeyword_2; }
+		
+		//p2=Point
+		public Assignment getP2Assignment_3() { return cP2Assignment_3; }
+		
+		//Point
+		public RuleCall getP2PointParserRuleCall_3_0() { return cP2PointParserRuleCall_3_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
+	}
+	public class Ligne2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.perrin.trains.Reseau.Ligne2");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLessThanSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cP1Assignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cP1PointParserRuleCall_1_0 = (RuleCall)cP1Assignment_1.eContents().get(0);
+		private final Keyword cCommaKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cP2Assignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cP2PointParserRuleCall_3_0 = (RuleCall)cP2Assignment_3.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Ligne2:
+		//	'<' p1=Point ',' p2=Point '>';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'<' p1=Point ',' p2=Point '>'
+		public Group getGroup() { return cGroup; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_0() { return cLessThanSignKeyword_0; }
+		
+		//p1=Point
+		public Assignment getP1Assignment_1() { return cP1Assignment_1; }
+		
+		//Point
+		public RuleCall getP1PointParserRuleCall_1_0() { return cP1PointParserRuleCall_1_0; }
+		
+		//','
+		public Keyword getCommaKeyword_2() { return cCommaKeyword_2; }
+		
+		//p2=Point
+		public Assignment getP2Assignment_3() { return cP2Assignment_3; }
+		
+		//Point
+		public RuleCall getP2PointParserRuleCall_3_0() { return cP2PointParserRuleCall_3_0; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_4() { return cGreaterThanSignKeyword_4; }
 	}
 	public class SegmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.perrin.trains.Reseau.Segment");
@@ -738,6 +877,9 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 	private final MultiplicationElements pMultiplication;
 	private final PuissanceElements pPuissance;
 	private final PrimaryExpressionElements pPrimaryExpression;
+	private final LigneElements pLigne;
+	private final Ligne1Elements pLigne1;
+	private final Ligne2Elements pLigne2;
 	private final TerminalRule tNUMBER;
 	private final TerminalRule tINT;
 	private final SegmentElements pSegment;
@@ -761,6 +903,9 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMultiplication = new MultiplicationElements();
 		this.pPuissance = new PuissanceElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
+		this.pLigne = new LigneElements();
+		this.pLigne1 = new Ligne1Elements();
+		this.pLigne2 = new Ligne2Elements();
 		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "fr.perrin.trains.Reseau.NUMBER");
 		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "fr.perrin.trains.Reseau.INT");
 		this.pSegment = new SegmentElements();
@@ -837,7 +982,7 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Multiplication Point:
-	//	Puissance (({Multi.left=current} '*' | {Div.left=current} '/') right=Multiplication)*;
+	//	Puissance (({Multi.left=current} '*' | {Div.left=current} '/') right=Puissance)*;
 	public MultiplicationElements getMultiplicationAccess() {
 		return pMultiplication;
 	}
@@ -856,12 +1001,12 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 		return getPuissanceAccess().getRule();
 	}
 	
-	////Degre returns Point: PrimaryExpression ({Degree.left=current} '°')?;
 	//PrimaryExpression Point:
 	//	'(' Point ({CoordonneeLiteral.left=current} ',' right=Point)? ')'
 	//	| {NumberLiteral} value=NUMBER
 	//	| {Negative} '-' value=PrimaryExpression
-	//	| {Declared} Decl=[DeclarationPoint] | {Nord} 'nord'
+	//	| {Declared} Decl=[DeclarationPoint] | {Dernier} '~'
+	//	| {Nord} 'nord'
 	//	| {Sud} 'sud'
 	//	| {Est} 'est'
 	//	| {Ouest} 'ouest'
@@ -872,13 +1017,44 @@ public class ReseauGrammarAccess extends AbstractGrammarElementFinder {
 	//	| {Y} 'y' '(' value=Point ')'
 	//	| {Longueur} 'longueur' '(' value=Point ')'
 	//	| {Angle} 'angle' '(' value=Point ')'
-	//	| {Argument} 'argument' '(' value=Point ')';
+	//	| {Argument} 'argument' '(' value=Point ')'
+	//	| {Intersection} l1=Ligne 'inter' l2=Ligne;
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
 		return pPrimaryExpression;
 	}
 	
 	public ParserRule getPrimaryExpressionRule() {
 		return getPrimaryExpressionAccess().getRule();
+	}
+	
+	//Ligne:
+	//	Ligne1 | Ligne2;
+	public LigneElements getLigneAccess() {
+		return pLigne;
+	}
+	
+	public ParserRule getLigneRule() {
+		return getLigneAccess().getRule();
+	}
+	
+	//Ligne1:
+	//	'[' p1=Point ',' p2=Point ']';
+	public Ligne1Elements getLigne1Access() {
+		return pLigne1;
+	}
+	
+	public ParserRule getLigne1Rule() {
+		return getLigne1Access().getRule();
+	}
+	
+	//Ligne2:
+	//	'<' p1=Point ',' p2=Point '>';
+	public Ligne2Elements getLigne2Access() {
+		return pLigne2;
+	}
+	
+	public ParserRule getLigne2Rule() {
+		return getLigne2Access().getRule();
 	}
 	
 	//terminal NUMBER returns ecore::EDouble:

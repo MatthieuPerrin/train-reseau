@@ -68,6 +68,9 @@ public class ReseauFactoryImpl extends EFactoryImpl implements ReseauFactory
       case ReseauPackage.MODEL: return createModel();
       case ReseauPackage.DECLARATION_POINT: return createDeclarationPoint();
       case ReseauPackage.POINT: return createPoint();
+      case ReseauPackage.LIGNE: return createLigne();
+      case ReseauPackage.LIGNE1: return createLigne1();
+      case ReseauPackage.LIGNE2: return createLigne2();
       case ReseauPackage.SEGMENT: return createSegment();
       case ReseauPackage.SEGMENT_PART: return createSegmentPart();
       case ReseauPackage.UNIDIR: return createUnidir();
@@ -82,6 +85,7 @@ public class ReseauFactoryImpl extends EFactoryImpl implements ReseauFactory
       case ReseauPackage.NUMBER_LITERAL: return createNumberLiteral();
       case ReseauPackage.NEGATIVE: return createNegative();
       case ReseauPackage.DECLARED: return createDeclared();
+      case ReseauPackage.DERNIER: return createDernier();
       case ReseauPackage.NORD: return createNord();
       case ReseauPackage.SUD: return createSud();
       case ReseauPackage.EST: return createEst();
@@ -94,6 +98,7 @@ public class ReseauFactoryImpl extends EFactoryImpl implements ReseauFactory
       case ReseauPackage.LONGUEUR: return createLongueur();
       case ReseauPackage.ANGLE: return createAngle();
       case ReseauPackage.ARGUMENT: return createArgument();
+      case ReseauPackage.INTERSECTION: return createIntersection();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -133,6 +138,42 @@ public class ReseauFactoryImpl extends EFactoryImpl implements ReseauFactory
   {
     PointImpl point = new PointImpl();
     return point;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Ligne createLigne()
+  {
+    LigneImpl ligne = new LigneImpl();
+    return ligne;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Ligne1 createLigne1()
+  {
+    Ligne1Impl ligne1 = new Ligne1Impl();
+    return ligne1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Ligne2 createLigne2()
+  {
+    Ligne2Impl ligne2 = new Ligne2Impl();
+    return ligne2;
   }
 
   /**
@@ -309,6 +350,18 @@ public class ReseauFactoryImpl extends EFactoryImpl implements ReseauFactory
    * @generated
    */
   @Override
+  public Dernier createDernier()
+  {
+    DernierImpl dernier = new DernierImpl();
+    return dernier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Nord createNord()
   {
     NordImpl nord = new NordImpl();
@@ -445,6 +498,18 @@ public class ReseauFactoryImpl extends EFactoryImpl implements ReseauFactory
   {
     ArgumentImpl argument = new ArgumentImpl();
     return argument;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Intersection createIntersection()
+  {
+    IntersectionImpl intersection = new IntersectionImpl();
+    return intersection;
   }
 
   /**

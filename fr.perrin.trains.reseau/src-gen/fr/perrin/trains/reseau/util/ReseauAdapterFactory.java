@@ -91,6 +91,21 @@ public class ReseauAdapterFactory extends AdapterFactoryImpl
         return createPointAdapter();
       }
       @Override
+      public Adapter caseLigne(Ligne object)
+      {
+        return createLigneAdapter();
+      }
+      @Override
+      public Adapter caseLigne1(Ligne1 object)
+      {
+        return createLigne1Adapter();
+      }
+      @Override
+      public Adapter caseLigne2(Ligne2 object)
+      {
+        return createLigne2Adapter();
+      }
+      @Override
       public Adapter caseSegment(Segment object)
       {
         return createSegmentAdapter();
@@ -161,6 +176,11 @@ public class ReseauAdapterFactory extends AdapterFactoryImpl
         return createDeclaredAdapter();
       }
       @Override
+      public Adapter caseDernier(Dernier object)
+      {
+        return createDernierAdapter();
+      }
+      @Override
       public Adapter caseNord(Nord object)
       {
         return createNordAdapter();
@@ -219,6 +239,11 @@ public class ReseauAdapterFactory extends AdapterFactoryImpl
       public Adapter caseArgument(Argument object)
       {
         return createArgumentAdapter();
+      }
+      @Override
+      public Adapter caseIntersection(Intersection object)
+      {
+        return createIntersectionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -283,6 +308,51 @@ public class ReseauAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPointAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.perrin.trains.reseau.Ligne <em>Ligne</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.perrin.trains.reseau.Ligne
+   * @generated
+   */
+  public Adapter createLigneAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.perrin.trains.reseau.Ligne1 <em>Ligne1</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.perrin.trains.reseau.Ligne1
+   * @generated
+   */
+  public Adapter createLigne1Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.perrin.trains.reseau.Ligne2 <em>Ligne2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.perrin.trains.reseau.Ligne2
+   * @generated
+   */
+  public Adapter createLigne2Adapter()
   {
     return null;
   }
@@ -498,6 +568,21 @@ public class ReseauAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link fr.perrin.trains.reseau.Dernier <em>Dernier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.perrin.trains.reseau.Dernier
+   * @generated
+   */
+  public Adapter createDernierAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link fr.perrin.trains.reseau.Nord <em>Nord</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -673,6 +758,21 @@ public class ReseauAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createArgumentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.perrin.trains.reseau.Intersection <em>Intersection</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.perrin.trains.reseau.Intersection
+   * @generated
+   */
+  public Adapter createIntersectionAdapter()
   {
     return null;
   }
